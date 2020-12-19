@@ -16,10 +16,10 @@ public class MainActivity extends Activity {
 
         scanButton = findViewById(R.id.scanBtn);
         addButton = findViewById(R.id.addBtn);
-        addListeners();
+        setupListeners();
     }
 
-    private void addListeners() {
+    private void setupListeners() {
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
