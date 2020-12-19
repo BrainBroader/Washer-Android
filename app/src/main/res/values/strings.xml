@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Washer</string>
+    <string name="press_to_find_device">Πάτα για να βρεις την συσκευή</string>
+    <string name="add_device">ή βαλτην χειροκίνητα</string>
 </resources>
