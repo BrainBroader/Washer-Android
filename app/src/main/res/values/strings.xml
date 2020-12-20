@@ -2,4 +2,16 @@
     <string name="app_name">Washer</string>
     <string name="press_to_find_device">Πάτα για να βρεις την συσκευή</string>
     <string name="add_device">ή βαλτην χειροκίνητα</string>
+    <string name="choose_program">Επίλεξε το πρόγραμμα πλυσίματος</string>
+    <string name="fast_program">ΠΡΟΓΡΑΜΜΑ ΓΡΗΓΟΡΗΣ ΠΛΥΣΗΣ</string>
+    <string name="eco_program">ΟΙΚΟΝΟΜΙΚΟ ΠΡΟΓΡΑΜΜΑ</string>
+    <string name="cotton_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΒΑΜΒΑΚΕΡΑ</string>
+    <string name="synthetic_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΣΥΝΘΕΤΙΚΑ</string>
+    <string name="vul_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΕΥΑΙΣΘΗΤΑ</string>
+    <string name="mallina_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΜΑΛΛΙΝΑ ΡΟΥΧΑ</string>
+    <string name="white_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΛΕΥΚΑ</string>
+    <string name="program">Πρόγραμμα</string>
+    <string name="turns">Στροφές</string>
+    <string name="temperature">Θερμοκρασία</string>
+    <string name="confirm">Επιβεβαίωση</string>
 </resources>
