@@ -76,13 +76,13 @@ public class ChooseProgramActivity extends AppCompatActivity {
     }
 
     private void ClearStagesColor() {
-        stage1TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
+        stage1TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.textColor));
         stage1ImageView.setColorFilter(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
-        stage2TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
+        stage2TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.textColor));
         stage2ImageView.setColorFilter(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
-        stage3TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
+        stage3TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.textColor));
         stage3ImageView.setColorFilter(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
-        stage4TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
+        stage4TextView.setTextColor(ContextCompat.getColor(ChooseProgramActivity.this, R.color.textColor));
         stage4ImageView.setColorFilter(ContextCompat.getColor(ChooseProgramActivity.this, R.color.defaultColor));
     }
 
