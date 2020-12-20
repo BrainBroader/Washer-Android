@@ -3,12 +3,16 @@ package com.android.washer;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -75,5 +79,8 @@ public class ChooseWasherActivity extends Activity {
         recyclerView.setLayoutManager(layoutManager);
         ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers);
         recyclerView.setAdapter(adapter);
+        DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
+        recyclerView.addItemDecoration(divider);
     }
 }
