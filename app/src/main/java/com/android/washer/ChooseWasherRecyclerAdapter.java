@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWasherRecyclerAdapter.ViewHolder> {
 
-    private ArrayList<WasherModel> washers;
+    private List<WasherModel> washers;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -25,7 +26,7 @@ public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWash
         }
     }
 
-    public ChooseWasherRecyclerAdapter(ArrayList<WasherModel> washers) {
+    public ChooseWasherRecyclerAdapter(List<WasherModel> washers) {
         this.washers = washers;
     }
 
