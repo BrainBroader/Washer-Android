@@ -1,6 +1,9 @@
 package com.android.washer;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -22,6 +25,7 @@ public class ChooseWasherActivity extends Activity {
 
     private RecyclerView recyclerView;
     private List<WasherModel> washers;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,9 +44,15 @@ public class ChooseWasherActivity extends Activity {
 
         Call<List<WasherModel>> call = api.getWashers();
 
+        progressDialog = new ProgressDialog(ChooseWasherActivity.this);
+        progressDialog.show();
+        progressDialog.setContentView(R.layout.custom_progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         call.enqueue(new Callback<List<WasherModel>>() {
             @Override
             public void onResponse(Call<List<WasherModel>> call, Response<List<WasherModel>> response) {
+                progressDialog.dismiss();
                 if (!response.isSuccessful()) {
                     Log.e("response failed", String.valueOf(response.code()));
                 }
@@ -52,6 +62,7 @@ public class ChooseWasherActivity extends Activity {
 
             @Override
             public void onFailure(Call<List<WasherModel>> call, Throwable t) {
+                progressDialog.dismiss();
                 Log.e("response failed", t.getMessage());
             }
         });
