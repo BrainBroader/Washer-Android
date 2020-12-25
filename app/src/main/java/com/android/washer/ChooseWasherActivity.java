@@ -22,7 +22,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChooseWasherActivity extends Activity {
+public class ChooseWasherActivity extends Activity implements ChooseWasherRecyclerAdapter.SelectedWasher {
 
     private RecyclerView recyclerView;
     private List<WasherModel> washers;
@@ -74,10 +74,15 @@ public class ChooseWasherActivity extends Activity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers);
+        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
         recyclerView.addItemDecoration(divider);
+    }
+
+    @Override
+    public void didSelectWasher(WasherModel washer) {
+
     }
 }

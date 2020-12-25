@@ -13,8 +13,9 @@ import java.util.List;
 public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWasherRecyclerAdapter.ViewHolder> {
 
     private List<WasherModel> washers;
+    private SelectedWasher selectedWasher;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView washerItemDescrTextView;
         private TextView washerItemIdTextView;
@@ -23,11 +24,19 @@ public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWash
             super(itemView);
             washerItemDescrTextView = itemView.findViewById(R.id.washerItemDescriptionTV);
             washerItemIdTextView = itemView.findViewById(R.id.washerItemIdTV);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectedWasher.didSelectWasher(washers.get(getAdapterPosition()));
+                }
+            });
         }
     }
 
-    public ChooseWasherRecyclerAdapter(List<WasherModel> washers) {
+    public ChooseWasherRecyclerAdapter(List<WasherModel> washers, SelectedWasher selectedWasher) {
         this.washers = washers;
+        this.selectedWasher = selectedWasher;
     }
 
     @NonNull
@@ -47,5 +56,9 @@ public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWash
     @Override
     public int getItemCount() {
         return washers.size();
+    }
+
+    public interface SelectedWasher {
+        void didSelectWasher(WasherModel washer);
     }
 }
