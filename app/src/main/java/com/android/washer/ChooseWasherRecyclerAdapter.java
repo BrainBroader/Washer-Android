@@ -1,6 +1,5 @@
 package com.android.washer;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWasherRecyclerAdapter.ViewHolder> {
@@ -18,11 +16,13 @@ public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWash
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView washerItemTextView;
+        private TextView washerItemDescrTextView;
+        private TextView washerItemIdTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            washerItemTextView = itemView.findViewById(R.id.washerItemTextView);
+            washerItemDescrTextView = itemView.findViewById(R.id.washerItemDescriptionTV);
+            washerItemIdTextView = itemView.findViewById(R.id.washerItemIdTV);
         }
     }
 
@@ -39,8 +39,9 @@ public class ChooseWasherRecyclerAdapter extends RecyclerView.Adapter<ChooseWash
 
     @Override
     public void onBindViewHolder(@NonNull ChooseWasherRecyclerAdapter.ViewHolder holder, int position) {
-        String model = washers.get(position).getModel();
-        holder.washerItemTextView.setText(model);
+        String washerText = washers.get(position).getBrand() + " " + washers.get(position).getModel();
+        holder.washerItemDescrTextView.setText(washerText);
+        holder.washerItemIdTextView.setText("ID: " + washers.get(position).getId());
     }
 
     @Override
