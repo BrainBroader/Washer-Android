@@ -20,14 +20,24 @@
             android:id="@+id/emtpyStateImageView"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/no_result_empty_state_icon" />
+            android:src="@drawable/no_result_empty_state_icon"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/emptyStateTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="TextView" />
+            android:text="@string/no_washers_found" />
+
+        <Button
+            android:id="@+id/scanAgainBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="128dp"
+            android:text="@string/scan_again"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
     <TextView

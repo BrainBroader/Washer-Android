@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
     private TextView headerTextView;
     private RecyclerView recyclerView;
     private LinearLayout emptyStateView;
+    private Button scanAgainButton;
     private List<WasherModel> washers;
     private ProgressDialog progressDialog;
 
@@ -41,6 +43,7 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
         headerTextView = findViewById(R.id.chooseWasherTV);
+        scanAgainButton = findViewById(R.id.scanAgainBtn);
         setupData();
     }
 
@@ -96,13 +99,25 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
         if (washers.isEmpty()) {
             emptyStateView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.INVISIBLE);
+            handleScanAgain();
         } else {
+            emptyStateView.setVisibility(View.INVISIBLE);
             headerTextView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void handleScanAgain() {
+        scanAgainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setupData();
+            }
+        });
     }
 
     @Override
     public void didSelectWasher(WasherModel washer) {
-
+        
     }
 }
