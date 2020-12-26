@@ -6,6 +6,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,7 +28,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ChooseWasherActivity extends Activity implements ChooseWasherRecyclerAdapter.SelectedWasher {
 
+    private TextView headerTextView;
     private RecyclerView recyclerView;
+    private LinearLayout emptyStateView;
     private List<WasherModel> washers;
     private ProgressDialog progressDialog;
 
@@ -32,6 +38,9 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_washer_activity);
+        recyclerView = findViewById(R.id.washersRV);
+        emptyStateView = findViewById(R.id.washerEmptyStateView);
+        headerTextView = findViewById(R.id.chooseWasherTV);
         setupData();
     }
 
@@ -57,6 +66,7 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
                 if (!response.isSuccessful()) {
                     Log.e("response failed", String.valueOf(response.code()));
                 }
+                washers = new ArrayList<>();
                 washers = response.body();
                 setupRecyclerView();
             }
@@ -79,6 +89,16 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
         recyclerView.addItemDecoration(divider);
+        showEmptyStateIfEmpty();
+    }
+
+    private void showEmptyStateIfEmpty() {
+        if (washers.isEmpty()) {
+            emptyStateView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
+        } else {
+            headerTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
