@@ -98,10 +98,12 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
     private void showEmptyStateIfEmpty() {
         if (washers.isEmpty()) {
             emptyStateView.setVisibility(View.VISIBLE);
+            scanAgainButton.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.INVISIBLE);
             handleScanAgain();
         } else {
             emptyStateView.setVisibility(View.INVISIBLE);
+            scanAgainButton.setVisibility(View.INVISIBLE);
             headerTextView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
