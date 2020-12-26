@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    tools:context=".ChooseProgramActivity">
+    tools:context=".ChooseSpeedActivity">
 
     <TextView
         android:gravity="center"
         android:textSize="20sp"
-        android:text="@string/choose_program"
+        android:text="@string/choose_speed"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -26,10 +26,11 @@
         <ImageView
             android:layout_width="250dp"
             android:layout_height="55dp"
-            android:background="@drawable/program_stage"
+            android:background="@drawable/speed_stage"
             android:layout_centerInParent="true"/>
 
     </RelativeLayout>
+
 
     <ScrollView
         android:scrollbars="vertical"
@@ -49,16 +50,15 @@
             <!-- Row One -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/fastProgram_card"
-                android:layout_marginTop="5dp"
+                android:id="@+id/turns400_card"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="51dp">
 
                 <LinearLayout
                     android:layout_height="match_parent"
@@ -71,7 +71,7 @@
                         android:layout_weight="0.2">
 
                         <ImageView
-                            android:id="@+id/fast_infoButton"
+                            android:id="@+id/infoButton_400"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
@@ -82,13 +82,12 @@
 
 
                     <TextView
-                        android:id="@+id/fastProgram_TV"
+                        android:id="@+id/turns400_TV"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.8"
-                        android:text="@string/fast_program"
+                        android:text="@string/four_hundrend"
                         style="@style/topic_textView"
-                        android:padding="5dp"
                         />
 
                 </LinearLayout>
@@ -96,15 +95,14 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ecoProgram_card"
-                android:layout_marginTop="5dp"
+                android:id="@+id/turns800_card"
                 android:layout_gravity="left"
                 android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="51dp">
 
                 <LinearLayout
                     android:layout_height="match_parent"
@@ -117,7 +115,7 @@
                         android:layout_weight="0.2">
 
                         <ImageView
-                            android:id="@+id/eco_infoButton"
+                            android:id="@+id/infoButton_800"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
@@ -128,33 +126,31 @@
 
 
                     <TextView
-                        android:id="@+id/ecoProgram_TV"
+                        android:id="@+id/turns800_TV"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.8"
-                        android:text="@string/eco_program"
+                        android:text="@string/eight_hundrend"
                         style="@style/topic_textView"
-                        android:padding="5dp"
                         />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
 
             <!-- Row Two -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cottonProgram_card"
+                android:id="@+id/turns1000_card"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="51dp">
 
                 <LinearLayout
                     android:layout_height="match_parent"
@@ -167,7 +163,7 @@
                         android:layout_weight="0.2">
 
                         <ImageView
-                            android:id="@+id/cotton_infoButton"
+                            android:id="@+id/infoButton_1000"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
@@ -178,13 +174,12 @@
 
 
                     <TextView
-                        android:id="@+id/cottonProgram_TV"
+                        android:id="@+id/turns1000_TV"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.8"
-                        android:text="@string/cotton_program"
+                        android:text="@string/one_thousand"
                         style="@style/topic_textView"
-                        android:padding="5dp"
                         />
 
                 </LinearLayout>
@@ -192,14 +187,14 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/syntheticProgram_card"
+                android:id="@+id/turns1200_card"
                 android:layout_gravity="left"
                 android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="51dp">
 
                 <LinearLayout
                     android:layout_height="match_parent"
@@ -212,7 +207,7 @@
                         android:layout_weight="0.2">
 
                         <ImageView
-                            android:id="@+id/synthetic_infoButton"
+                            android:id="@+id/infoButton_1200"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
@@ -223,34 +218,31 @@
 
 
                     <TextView
-                        android:id="@+id/syntheticProgram_TV"
+                        android:id="@+id/turns1200_TV"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.8"
-                        android:text="@string/synthetic_program"
+                        android:text="@string/one_thousand_two"
                         style="@style/topic_textView"
-                        android:padding="5dp"
                         />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
 
 
             <!-- Row Three -->
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/vulProgram_card"
+                android:id="@+id/turns1600_card"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
+                app:cardElevation="4dp"
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
                     android:layout_height="match_parent"
@@ -263,7 +255,7 @@
                         android:layout_weight="0.2">
 
                         <ImageView
-                            android:id="@+id/vul_infoButton"
+                            android:id="@+id/infoButton_1600"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
@@ -274,113 +266,17 @@
 
 
                     <TextView
-                        android:id="@+id/vulProgram_TV"
+                        android:id="@+id/turns1600_TV"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.8"
-                        android:text="@string/vul_program"
+                        android:text="@string/one_thousand_six"
                         style="@style/topic_textView"
-                        android:padding="5dp"
                         />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mallinaProgram_card"
-                android:layout_gravity="left"
-                android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
-                android:layout_marginBottom="32dp">
-
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
-
-                        <ImageView
-                            android:id="@+id/mallina_infoButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
-
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/mallinaProgram_TV"
-                        style="@style/topic_textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/mallina_program"
-                        android:padding="5dp"/>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Row Four -->
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/whiteProgram_card"
-                android:layout_marginRight="45dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
-
-                        <ImageView
-                            android:id="@+id/white_infoButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
-
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:id="@+id/whiteProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/white_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-
 
         </GridLayout>
 
