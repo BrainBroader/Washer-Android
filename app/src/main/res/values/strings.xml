@@ -6,4 +6,7 @@
     <string name="choose_washer_string">Επίλεξε την συσκευή που θες να χρησιμοποιήσεις</string>
     <string name="scan_again">Ψάξε ξανά</string>
     <string name="no_washers_found">Δεν βρέθηκαν πλυντήρια!</string>
+    <string name="my_washers_string">Τα πλυντήριά μου</string>
+    <string name="app_options_string">Ρυθμίσεις εφαρμογής</string>
+    <string name="start_washing_string">Έναρξη πλυσίματος</string>
 </resources>
