@@ -75,8 +75,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -121,8 +120,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -171,8 +169,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -216,8 +213,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -267,8 +263,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -312,8 +307,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
@@ -359,8 +353,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"
-                            android:layout_marginRight="5dp"/>
+                            android:src="@drawable/info_button"/>
 
                     </RelativeLayout>
 
