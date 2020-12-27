@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class ChooseTemperature extends AppCompatActivity {
 
-    ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp80_infoButton; //Info Buttons in Cards
-    CardView temp20_card, temp40_card, temp60_card, temp80_card; //Cards
-    TextView temp20_TV, temp40_TV, temp60_TV, temp80_TV; //Text Inside Cards
+    ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
+    CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
+    TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
     Button continue_button;
 
     @Override
@@ -32,28 +32,36 @@ public class ChooseTemperature extends AppCompatActivity {
         temp20_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String title = getResources().getString(R.string.twenty);
+                String description = "Details about this";
+                openDialog(title, description);
             }
         });
 
         temp40_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String title = getResources().getString(R.string.fourty);
+                String description = "Details about this";
+                openDialog(title, description);
             }
         });
 
         temp60_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String title = getResources().getString(R.string.sixty);
+                String description = "Details about this";
+                openDialog(title, description);
             }
         });
 
-        temp80_infoButton.setOnClickListener(new View.OnClickListener() {
+        temp90_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String title = getResources().getString(R.string.ninety);
+                String description = "Details about this";
+                openDialog(title, description);
             }
         });
 
@@ -67,21 +75,26 @@ public class ChooseTemperature extends AppCompatActivity {
         });
     }
 
+    private void openDialog(String title, String description){
+        InfoDialog infoDialog = new InfoDialog(title, description);
+        infoDialog.show(getSupportFragmentManager(), "info button");
+    }
+
     private void ConnectViews() {
         temp20_card = findViewById(R.id.temp20_card);
         temp40_card = findViewById(R.id.temp40_card);
         temp60_card = findViewById(R.id.temp60_card);
-        temp80_card = findViewById(R.id.temp80_card);
+        temp90_card = findViewById(R.id.temp90_card);
 
         temp20_infoButton = findViewById(R.id.temp20_infoButton);
         temp40_infoButton = findViewById(R.id.temp40_infoButton);
         temp60_infoButton = findViewById(R.id.temp60_infoButton);
-        temp80_infoButton = findViewById(R.id.temp80_infoButton);
+        temp90_infoButton = findViewById(R.id.temp90_infoButton);
 
         temp20_TV = findViewById(R.id.temp20_TV);
         temp40_TV = findViewById(R.id.temp40_TV);
         temp60_TV = findViewById(R.id.temp60_TV);
-        temp80_TV = findViewById(R.id.temp80_TV);
+        temp90_TV = findViewById(R.id.temp90_TV);
 
         continue_button = findViewById(R.id.continue_button);
     }

@@ -24,8 +24,19 @@ public class ChooseSpeedActivity extends AppCompatActivity {
         HideActionBar();
 
         ConnectViews();
-        ClickToContinue();
+        SetupListeners();
 
+    }
+
+    private void SetupListeners() {
+
+        continue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperature.class);
+                ChooseSpeedActivity.this.startActivity(intent);
+            }
+        });
     }
 
     private void ConnectViews() {
@@ -48,16 +59,6 @@ public class ChooseSpeedActivity extends AppCompatActivity {
         turns1600_TV = findViewById(R.id.turns1600_TV);
 
         continue_button = findViewById(R.id.continue_button);
-    }
-
-    private void ClickToContinue() {
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperature.class);
-                ChooseSpeedActivity.this.startActivity(intent);
-            }
-        });
     }
 
     private void HideActionBar() {
