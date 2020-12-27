@@ -24,10 +24,39 @@ public class ChooseTemperature extends AppCompatActivity {
         HideActionBar();
 
         ConnectViews();
-        ClickToContinue();
+        SetupListeners();
     }
 
-    private void ClickToContinue() {
+    private void SetupListeners() {
+
+        temp20_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        temp40_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        temp60_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        temp80_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

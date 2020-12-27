@@ -24,10 +24,73 @@ public class ChooseProgramActivity extends AppCompatActivity {
         HideActionBar();
 
         ConnectViews();
-        ClickToContinue();
+        SetupListeners();
     }
 
-    private void ClickToContinue() {
+    private void SetupListeners() {
+
+        fast_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.fast_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        eco_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.eco_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        cotton_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.cotton_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        synthetic_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.synthetic_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        vul_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.vul_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        mallina_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.mallina_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
+
+        white_infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = getResources().getString(R.string.white_program);
+                String description = "Details about this program";
+                openDialog(title, description);
+            }
+        });
 
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +99,11 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ChooseProgramActivity.this.startActivity(intent);
             }
         });
+    }
+
+    private void openDialog(String title, String description){
+        InfoDialog infoDialog = new InfoDialog(title, description);
+        infoDialog.show(getSupportFragmentManager(), "info button");
     }
 
     private void ConnectViews() {
