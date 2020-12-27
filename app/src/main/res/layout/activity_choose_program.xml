@@ -44,335 +44,444 @@
             android:rowCount="4"
             android:columnCount="2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
             <!-- Row One -->
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fastProgram_card"
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="101dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fastProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                    <androidx.cardview.widget.CardView
+                        android:layout_centerInParent="true"
+                        android:layout_width="119dp"
+                        android:layout_height="90dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="2dp">
 
-                        <ImageView
-                            android:id="@+id/fast_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
+
+                                <ImageView
+                                    android:id="@+id/fast_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
+
+                            </RelativeLayout>
 
 
-                    <TextView
-                        android:id="@+id/fastProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/fast_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
+                            <TextView
+                                android:id="@+id/fastProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/fast_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
 
-                </LinearLayout>
+                        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ecoProgram_card"
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_marginTop="5dp"
                 android:layout_gravity="left"
                 android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
+                android:layout_width="130dp"
+                android:layout_height="101dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ecoProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_centerInParent="true"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="119dp"
+                        android:layout_height="90dp"
+                        app:cardCornerRadius="4dp"
+                        android:layout_centerInParent="true">
 
-                        <ImageView
-                            android:id="@+id/eco_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
 
+                                <ImageView
+                                    android:id="@+id/eco_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
 
-                    <TextView
-                        android:id="@+id/ecoProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/eco_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
 
 
+                            <TextView
+                                android:id="@+id/ecoProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/eco_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <!-- Row Two -->
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cottonProgram_card"
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="101dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cottonProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                <androidx.cardview.widget.CardView
+                    android:layout_centerInParent="true"
+                    android:layout_width="119dp"
+                    android:layout_height="90dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp">
 
-                        <ImageView
-                            android:id="@+id/cotton_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
+
+                                <ImageView
+                                    android:id="@+id/cotton_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
+
+                            </RelativeLayout>
 
 
-                    <TextView
-                        android:id="@+id/cottonProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/cotton_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
+                            <TextView
+                                android:id="@+id/cottonProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/cotton_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
 
-                </LinearLayout>
+                        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/syntheticProgram_card"
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
                 android:layout_gravity="left"
                 android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
+                android:layout_width="130dp"
+                android:layout_height="101dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/syntheticProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_centerInParent="true"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="119dp"
+                    android:layout_height="90dp"
+                    app:cardCornerRadius="4dp"
+                    android:layout_centerInParent="true">
 
-                        <ImageView
-                            android:id="@+id/synthetic_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
 
+                                <ImageView
+                                    android:id="@+id/synthetic_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
 
-                    <TextView
-                        android:id="@+id/syntheticProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/synthetic_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
 
 
+                            <TextView
+                                android:id="@+id/syntheticProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/synthetic_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
 
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
 
             <!-- Row Three -->
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/vulProgram_card"
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="101dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/vulProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                <androidx.cardview.widget.CardView
+                    android:layout_centerInParent="true"
+                    android:layout_width="119dp"
+                    android:layout_height="90dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp">
 
-                        <ImageView
-                            android:id="@+id/vul_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
+
+                                <ImageView
+                                    android:id="@+id/vul_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
+
+                            </RelativeLayout>
 
 
-                    <TextView
-                        android:id="@+id/vulProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/vul_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
+                            <TextView
+                                android:id="@+id/vulProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/vul_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
 
-                </LinearLayout>
+                        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mallinaProgram_card"
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="5dp"
                 android:layout_gravity="left"
                 android:layout_marginRight="5dp"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp"
+                android:layout_width="130dp"
+                android:layout_height="101dp"
                 android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mallinaProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    android:layout_centerInParent="true"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="119dp"
+                    android:layout_height="90dp"
+                    app:cardCornerRadius="4dp"
+                    android:layout_centerInParent="true">
 
-                        <ImageView
-                            android:id="@+id/mallina_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
 
-                    <TextView
-                        android:id="@+id/mallinaProgram_TV"
-                        style="@style/topic_textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/mallina_program"
-                        android:padding="5dp"/>
+                                <ImageView
+                                    android:id="@+id/mallina_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/mallinaProgram_TV"
+                                style="@style/topic_textView"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/mallina_program"
+                                android:padding="5dp"/>
 
 
-                </LinearLayout>
+                        </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <!-- Row Four -->
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/whiteProgram_card"
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="101dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_gravity="right"
-                android:layout_width="119dp"
-                android:layout_height="90dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="2dp">
+                android:layout_marginBottom="32dp">
 
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/whiteProgram_card"
+                    android:layout_width="125dp"
+                    android:layout_height="96dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/purple_700"
+                    android:visibility="invisible"/>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2">
+                <androidx.cardview.widget.CardView
+                    android:layout_centerInParent="true"
+                    android:layout_width="119dp"
+                    android:layout_height="90dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp">
 
-                        <ImageView
-                            android:id="@+id/white_infoButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/info_button"/>
+                            android:layout_width="match_parent"
+                            android:orientation="vertical">
 
-                    </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2">
 
+                                <ImageView
+                                    android:id="@+id/white_infoButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/info_button"/>
 
-                    <TextView
-                        android:id="@+id/whiteProgram_TV"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.8"
-                        android:text="@string/white_program"
-                        style="@style/topic_textView"
-                        android:padding="5dp"
-                        />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
 
 
+                            <TextView
+                                android:id="@+id/whiteProgram_TV"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.8"
+                                android:text="@string/white_program"
+                                style="@style/topic_textView"
+                                android:padding="5dp"
+                                />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
 
         </GridLayout>

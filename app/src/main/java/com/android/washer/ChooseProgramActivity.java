@@ -29,6 +29,94 @@ public class ChooseProgramActivity extends AppCompatActivity {
 
     private void SetupListeners() {
 
+        SetupInfoButtons();
+        SetupCards();
+
+        continue_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
+                ChooseProgramActivity.this.startActivity(intent);
+            }
+        });
+    }
+
+    private void openDialog(String title, String description){
+        InfoDialog infoDialog = new InfoDialog(title, description);
+        infoDialog.show(getSupportFragmentManager(), "info button");
+    }
+
+    private void SetupCards() {
+
+        fastProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                fastProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        ecoProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                ecoProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        cottonProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                cottonProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        syntheticProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                syntheticProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        vulProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                vulProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mallinaProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                mallinaProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        whiteProgram_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                whiteProgram_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+
+    private void ClearPickedCards() {
+        fastProgram_card.setVisibility(View.INVISIBLE);
+        ecoProgram_card.setVisibility(View.INVISIBLE);
+        cottonProgram_card.setVisibility(View.INVISIBLE);
+        syntheticProgram_card.setVisibility(View.INVISIBLE);
+        vulProgram_card.setVisibility(View.INVISIBLE);
+        mallinaProgram_card.setVisibility(View.INVISIBLE);
+        whiteProgram_card.setVisibility(View.INVISIBLE);
+    }
+
+    private void SetupInfoButtons() {
         fast_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,19 +179,6 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 openDialog(title, description);
             }
         });
-
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
-                ChooseProgramActivity.this.startActivity(intent);
-            }
-        });
-    }
-
-    private void openDialog(String title, String description){
-        InfoDialog infoDialog = new InfoDialog(title, description);
-        infoDialog.show(getSupportFragmentManager(), "info button");
     }
 
     private void ConnectViews() {
