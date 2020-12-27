@@ -33,6 +33,7 @@ public class ChooseTemperature extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent intent  = new Intent(ChooseTemperature.this, .class);
                 //ChooseTemperature.this.startActivity(intent);
+
             }
         });
     }
