@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -123,6 +124,44 @@ public class EditWasherActivity extends Activity {
                         findViewById(R.id.bottom_sheet));
                 bottomSheetDialog.setContentView(sheetView);
                 bottomSheetDialog.show();
+                handleBottomSheetListeners(sheetView);
+            }
+        });
+    }
+
+    private void handleBottomSheetListeners(View view) {
+        view.findViewById(R.id.bottomSheetChoice1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        view.findViewById(R.id.bottomSheetChoice2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        view.findViewById(R.id.bottomSheetChoice3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        view.findViewById(R.id.bottomSheetChoice4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        view.findViewById(R.id.closeSheetImageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
             }
         });
     }
