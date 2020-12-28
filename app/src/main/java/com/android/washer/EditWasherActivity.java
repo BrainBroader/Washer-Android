@@ -1,6 +1,5 @@
 package com.android.washer;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -32,7 +32,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class EditWasherActivity extends Activity {
+public class EditWasherActivity extends AppCompatActivity {
 
     private TextView headerTextView;
     private RecyclerView recyclerView;
@@ -49,6 +49,7 @@ public class EditWasherActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_washer_activity);
+        this.getSupportActionBar().setTitle("Τα πλυντήρια μου");
         recyclerView = findViewById(R.id.editWashersRV);
         emptyStateView = findViewById(R.id.editWasherEmptyStateView);
         headerTextView = findViewById(R.id.editWasherTV);

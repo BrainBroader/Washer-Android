@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="@string/add_or_delete_friendly_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,11 +25,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:hint="label"
+        android:hint="@string/friendly_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:hintTextColor="@color/black">
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -37,4 +38,38 @@
             android:background="@color/clear" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textField">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:text="@string/delete"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginStart="4dp"
+            android:text="@string/save"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="@color/white"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

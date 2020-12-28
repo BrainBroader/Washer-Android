@@ -9,4 +9,8 @@
     <string name="my_washers_string">Τα πλυντήριά μου</string>
     <string name="app_options_string">Ρυθμίσεις εφαρμογής</string>
     <string name="start_washing_string">Έναρξη πλυσίματος</string>
+    <string name="friendly_name">Φιλική ονομασία</string>
+    <string name="delete">Διαγραφή</string>
+    <string name="save">Αποθήκευση</string>
+    <string name="add_or_delete_friendly_name">Διέγραψε την φιλική ονομασία του πλυντηρίου σου ή πληκτρολόγησε την δική σου</string>
 </resources>

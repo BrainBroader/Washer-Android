@@ -18,9 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditWasherActivity" />
+        <activity android:name=".EditWasherActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".ChooseWasherActivity" />
-        <activity android:name=".AddFriendlyNameActivity" />
+        <activity android:name=".AddFriendlyNameActivity"
+            android:parentActivityName=".AddFriendlyNameActivity"/>
     </application>
 
 </manifest>

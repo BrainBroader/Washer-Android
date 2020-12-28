@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,15 +28,15 @@ public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRe
 
         private TextView washerItemDescrTextView;
         private TextView washerItemIdTextView;
-        private Button editButton;
+        private ImageView editImageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             washerItemDescrTextView = itemView.findViewById(R.id.editWasherItemDescriptionTV);
             washerItemIdTextView = itemView.findViewById(R.id.editWasherItemIdTV);
-            editButton = itemView.findViewById(R.id.editWasherButton);
+            editImageView = itemView.findViewById(R.id.editWasherButton);
 
-            editButton.setOnClickListener(new View.OnClickListener() {
+            editImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
