@@ -6,11 +6,11 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,7 @@ public class EditWasherActivity extends Activity {
     private Button scanAgainButton;
     private List<WasherModel> washers;
     private ProgressDialog progressDialog;
+    private BottomSheetDialog bottomSheetDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -115,7 +118,11 @@ public class EditWasherActivity extends Activity {
         adapter.setOnItemButtonOnClickListener(new EditWasherRecyclerAdapter.OnItemButtonClickListener() {
             @Override
             public void onItemClick(WasherModel model) {
-                Toast.makeText(getApplicationContext(), model.getId(), Toast.LENGTH_SHORT).show();
+                bottomSheetDialog = new BottomSheetDialog(EditWasherActivity.this, R.style.BottomSheetTheme);
+                View sheetView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.bottom_sheet_modal,
+                        findViewById(R.id.bottom_sheet));
+                bottomSheetDialog.setContentView(sheetView);
+                bottomSheetDialog.show();
             }
         });
     }
@@ -128,6 +135,4 @@ public class EditWasherActivity extends Activity {
             }
         });
     }
-
-
 }
