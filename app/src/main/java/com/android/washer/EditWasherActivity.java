@@ -2,6 +2,7 @@ package com.android.washer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -164,8 +165,8 @@ public class EditWasherActivity extends Activity {
         view.findViewById(R.id.bottomSheetChoice4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateRecyclerView(model, choice4.getText().toString());
                 bottomSheetDialog.dismiss();
+                startActivity(new Intent(EditWasherActivity.this, AddFriendlyNameActivity.class));
             }
         });
 
@@ -177,10 +178,10 @@ public class EditWasherActivity extends Activity {
         });
     }
 
-    private void updateRecyclerView(WasherModel model, String friedlyName) {
+    private void updateRecyclerView(WasherModel model, String friendlyName) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(model.getId(), friedlyName);
+        editor.putString(model.getId(), friendlyName);
         editor.apply();
         adapter.notifyDataSetChanged();
     }

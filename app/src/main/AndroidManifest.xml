@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".EditWasherActivity" />
         <activity android:name=".ChooseWasherActivity" />
+        <activity android:name=".AddFriendlyNameActivity" />
     </application>
 
 </manifest>
