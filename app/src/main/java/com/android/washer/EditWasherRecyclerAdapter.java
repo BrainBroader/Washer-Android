@@ -1,5 +1,7 @@
 package com.android.washer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRecyclerAdapter.ViewHolder> {
 
     private List<WasherModel> washers;
     private OnItemButtonClickListener listener;
+    private Context context;
+
+    private final String SHARED_PREFS = "sharedPrefs";
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -40,8 +47,9 @@ public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRe
         }
     }
 
-    public EditWasherRecyclerAdapter(List<WasherModel> washers) {
+    public EditWasherRecyclerAdapter(List<WasherModel> washers, Context context) {
         this.washers = washers;
+        this.context = context;
     }
 
     @NonNull
@@ -55,7 +63,14 @@ public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRe
     public void onBindViewHolder(@NonNull EditWasherRecyclerAdapter.ViewHolder holder, int position) {
         String washerText = washers.get(position).getBrand() + " " + washers.get(position).getModel();
         holder.washerItemDescrTextView.setText(washerText);
-        holder.washerItemIdTextView.setText("ID: " + washers.get(position).getId());
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String friendlyName = sharedPreferences.getString(washers.get(position).getId(), "");
+
+        if (friendlyName != "" ) {
+            holder.washerItemIdTextView.setText(friendlyName + " - " + washers.get(position).getId());
+        } else {
+            holder.washerItemIdTextView.setText("ID: " + washers.get(position).getId());
+        }
     }
 
     @Override

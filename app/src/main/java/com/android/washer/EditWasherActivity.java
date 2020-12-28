@@ -2,6 +2,7 @@ package com.android.washer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -38,8 +38,11 @@ public class EditWasherActivity extends Activity {
     private LinearLayout emptyStateView;
     private Button scanAgainButton;
     private List<WasherModel> washers;
+    private EditWasherRecyclerAdapter adapter;
     private ProgressDialog progressDialog;
     private BottomSheetDialog bottomSheetDialog;
+
+    private final String SHARED_PREFS = "sharedPrefs";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,13 +95,13 @@ public class EditWasherActivity extends Activity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        EditWasherRecyclerAdapter adapter = new EditWasherRecyclerAdapter(washers);
+        adapter = new EditWasherRecyclerAdapter(washers, getApplicationContext());
         recyclerView.setAdapter(adapter);
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
         recyclerView.addItemDecoration(divider);
         showEmptyStateIfEmpty();
-        handleAdapterListener(adapter);
+        handleAdapterListener();
     }
 
     private void showEmptyStateIfEmpty() {
@@ -115,7 +118,7 @@ public class EditWasherActivity extends Activity {
         }
     }
 
-    private void handleAdapterListener(EditWasherRecyclerAdapter adapter) {
+    private void handleAdapterListener() {
         adapter.setOnItemButtonOnClickListener(new EditWasherRecyclerAdapter.OnItemButtonClickListener() {
             @Override
             public void onItemClick(WasherModel model) {
@@ -124,36 +127,44 @@ public class EditWasherActivity extends Activity {
                         findViewById(R.id.bottom_sheet));
                 bottomSheetDialog.setContentView(sheetView);
                 bottomSheetDialog.show();
-                handleBottomSheetListeners(sheetView);
+                handleBottomSheetListeners(sheetView, model);
             }
         });
     }
 
-    private void handleBottomSheetListeners(View view) {
-        view.findViewById(R.id.bottomSheetChoice1).setOnClickListener(new View.OnClickListener() {
+    private void handleBottomSheetListeners(View view, WasherModel model) {
+        TextView choice1 = view.findViewById(R.id.bottomSheetChoice1);
+        choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                updateRecyclerView(model, choice1.getText().toString());
                 bottomSheetDialog.dismiss();
             }
         });
 
-        view.findViewById(R.id.bottomSheetChoice2).setOnClickListener(new View.OnClickListener() {
+        TextView choice2 = view.findViewById(R.id.bottomSheetChoice2);
+        choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                updateRecyclerView(model, choice2.getText().toString());
                 bottomSheetDialog.dismiss();
             }
         });
 
+        TextView choice3 = view.findViewById(R.id.bottomSheetChoice3);
         view.findViewById(R.id.bottomSheetChoice3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                updateRecyclerView(model, choice3.getText().toString());
                 bottomSheetDialog.dismiss();
             }
         });
 
+        TextView choice4 = view.findViewById(R.id.bottomSheetChoice4);
         view.findViewById(R.id.bottomSheetChoice4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                updateRecyclerView(model, choice4.getText().toString());
                 bottomSheetDialog.dismiss();
             }
         });
@@ -164,6 +175,14 @@ public class EditWasherActivity extends Activity {
                 bottomSheetDialog.dismiss();
             }
         });
+    }
+
+    private void updateRecyclerView(WasherModel model, String friedlyName) {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(model.getId(), friedlyName);
+        editor.apply();
+        adapter.notifyDataSetChanged();
     }
 
     private void handleScanAgain() {
