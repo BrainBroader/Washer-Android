@@ -3,6 +3,7 @@ package com.android.washer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,16 +14,29 @@ import java.util.List;
 public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRecyclerAdapter.ViewHolder> {
 
     private List<WasherModel> washers;
+    private OnItemButtonClickListener listener;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView washerItemDescrTextView;
         private TextView washerItemIdTextView;
+        private Button editButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             washerItemDescrTextView = itemView.findViewById(R.id.editWasherItemDescriptionTV);
             washerItemIdTextView = itemView.findViewById(R.id.editWasherItemIdTV);
+            editButton = itemView.findViewById(R.id.editWasherButton);
+
+            editButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(washers.get(position));
+                    }
+                }
+            });
         }
     }
 
@@ -47,5 +61,13 @@ public class EditWasherRecyclerAdapter extends RecyclerView.Adapter<EditWasherRe
     @Override
     public int getItemCount() {
         return washers.size();
+    }
+
+    public interface OnItemButtonClickListener {
+        void onItemClick(WasherModel model);
+    }
+
+    public void setOnItemButtonOnClickListener(OnItemButtonClickListener listener) {
+        this.listener = listener;
     }
 }

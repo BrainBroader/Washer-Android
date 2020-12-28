@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -93,6 +94,7 @@ public class EditWasherActivity extends Activity {
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
         recyclerView.addItemDecoration(divider);
         showEmptyStateIfEmpty();
+        handleAdapterListener(adapter);
     }
 
     private void showEmptyStateIfEmpty() {
@@ -109,6 +111,15 @@ public class EditWasherActivity extends Activity {
         }
     }
 
+    private void handleAdapterListener(EditWasherRecyclerAdapter adapter) {
+        adapter.setOnItemButtonOnClickListener(new EditWasherRecyclerAdapter.OnItemButtonClickListener() {
+            @Override
+            public void onItemClick(WasherModel model) {
+                Toast.makeText(getApplicationContext(), model.getId(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void handleScanAgain() {
         scanAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,4 +128,6 @@ public class EditWasherActivity extends Activity {
             }
         });
     }
+
+
 }
