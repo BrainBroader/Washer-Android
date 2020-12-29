@@ -1,6 +1,5 @@
 package com.android.washer;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -27,7 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChooseWasherActivity extends Activity implements ChooseWasherRecyclerAdapter.SelectedWasher {
+public class ChooseWasherActivity extends AppCompatActivity implements ChooseWasherRecyclerAdapter.SelectedWasher {
 
     private TextView headerTextView;
     private RecyclerView recyclerView;
@@ -40,6 +40,7 @@ public class ChooseWasherActivity extends Activity implements ChooseWasherRecycl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_washer_activity);
+        this.getSupportActionBar().setTitle("Έναρξη πλυσίματος");
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
         headerTextView = findViewById(R.id.chooseWasherTV);
