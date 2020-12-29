@@ -22,7 +22,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +61,7 @@ public class EditWasherActivity extends AppCompatActivity {
         headerTextView = findViewById(R.id.editWasherTV);
         scanAgainButton = findViewById(R.id.editWasherScanAgainBtn);
         setupData();
+        EventBus.getDefault().register(this);
     }
 
     private void setupData() {
@@ -167,7 +174,10 @@ public class EditWasherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bottomSheetDialog.dismiss();
-                startActivity(new Intent(EditWasherActivity.this, AddFriendlyNameActivity.class));
+                Intent intent = new Intent(EditWasherActivity.this, AddFriendlyNameActivity.class);
+                Gson gson = new Gson();
+                intent.putExtra("washerJson", gson.toJson(model));
+                startActivity(intent);
             }
         });
 
@@ -195,4 +205,11 @@ public class EditWasherActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(String text) {
+        if (text.equals("UPDATE_RECYCLER_VIEW")) {
+            adapter.notifyDataSetChanged();
+        }
+    };
 }
