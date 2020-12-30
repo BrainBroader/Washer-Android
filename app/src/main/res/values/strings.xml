@@ -13,4 +13,12 @@
     <string name="delete">Διαγραφή</string>
     <string name="save">Αποθήκευση</string>
     <string name="add_or_delete_friendly_name">Διέγραψε την φιλική ονομασία του πλυντηρίου σου ή πληκτρολόγησε την δική σου</string>
+    <string name="program_name"> Πρόγραμμα βαμβακερά</string>
+    <string name="spin"> Στροφές</string>
+    <string name="ver_title">Επιβεβαιώστε τις ρυθμίσεις του προγράμματος σας</string>
+    <string name="Temperature"> Θερμοκρασία</string>
+    <string name="duration">Το προγραμμα σας θα διαρκεσει 2 ωρες
+        και 30 λεπτα</string>
+    <string name="notify">θέλω να ειδοποιηθώ κατα τη λήξη του πλυσίματος.</string>
+    <string name="start">ΕΝΑΡΞΗ</string>
 </resources>

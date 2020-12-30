@@ -24,6 +24,7 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".AddFriendlyNameActivity"
             android:parentActivityName=".AddFriendlyNameActivity"/>
+        <activity android:name=".VerificationActivity"/>
     </application>
 
 </manifest>
