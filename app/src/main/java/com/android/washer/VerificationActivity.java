@@ -16,18 +16,18 @@ public class VerificationActivity extends AppCompatActivity{
         setContentView(R.layout.activity_verification);
 
 
-        Intent intent = getIntent();
-        String program_name = intent.getStringExtra(MainActivity.PROGRAM_NAME);
-        String spin = intent.getStringExtra(MainActivity.SPIN);
-        String temperature = intent.getStringExtra(MainActivity.TEMP);
+        //Intent intent = getIntent();
+        //String program_name = intent.getStringExtra(MainActivity.PROGRAM_NAME);
+        //String spin = intent.getStringExtra(MainActivity.SPIN);
+        //String temperature = intent.getStringExtra(MainActivity.TEMP);
 
 
-        TextView programName = findViewById(R.id.program_name);
-        programName.setText(program_name);
-        TextView speed = findViewById(R.id.spin);
-        speed.setText(spin);
-        TextView temp = findViewById(R.id.temperature);
-        temp.setText(temperature);
+        //TextView programName = findViewById(R.id.program_name);
+        //.setText(program_name);
+        //TextView speed = findViewById(R.id.spin);
+        //speed.setText(spin);
+        //TextView temp = findViewById(R.id.temperature);
+        //temp.setText(temperature);
 
         final Button start = findViewById(R.id.start_button);
         start.setOnClickListener(new View.OnClickListener() {
