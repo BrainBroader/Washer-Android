@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChooseSpeedActivity extends AppCompatActivity {
 
@@ -17,11 +18,17 @@ public class ChooseSpeedActivity extends AppCompatActivity {
     TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
     Button continue_button;
 
+    String program;
+    String speed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_speed);
         HideActionBar();
+
+        Bundle bundle = getIntent().getExtras();
+        program = bundle.getString("Program");
 
         ConnectViews();
         SetupListeners();
@@ -29,13 +36,24 @@ public class ChooseSpeedActivity extends AppCompatActivity {
     }
 
     private void SetupListeners() {
-
         SetupCards();
+        GoToChooseTemperatureActivity();
+    }
 
+    private void GoToChooseTemperatureActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (speed == null) {
+                    Toast.makeText(ChooseSpeedActivity.this, "Select an option!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperature.class);
+                intent.putExtra("Program", program);
+                intent.putExtra("Speed", speed);
                 ChooseSpeedActivity.this.startActivity(intent);
             }
         });
@@ -48,6 +66,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 turns400_card.setVisibility(View.VISIBLE);
+                speed = getResources().getString(R.string.four_hundrend);
             }
         });
 
@@ -56,6 +75,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 turns800_card.setVisibility(View.VISIBLE);
+                speed = getResources().getString(R.string.eight_hundrend);
             }
         });
 
@@ -64,6 +84,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 turns1000_card.setVisibility(View.VISIBLE);
+                speed = getResources().getString(R.string.one_thousand);
             }
         });
 
@@ -72,6 +93,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 turns1200_card.setVisibility(View.VISIBLE);
+                speed = getResources().getString(R.string.one_thousand_two);
             }
         });
 
@@ -80,6 +102,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 turns1600_card.setVisibility(View.VISIBLE);
+                speed = getResources().getString(R.string.one_thousand_six);
             }
         });
     }

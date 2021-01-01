@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChooseProgramActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
     TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
     Button continue_button;
 
+    String program;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +30,28 @@ public class ChooseProgramActivity extends AppCompatActivity {
     }
 
     private void SetupListeners() {
-
         SetupInfoButtons();
         SetupCards();
+        GoToChooseSpeedActivity();
+    }
+
+    private void GoToChooseSpeedActivity() {
 
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
+
+                if (program == null) {
+                    Toast.makeText(ChooseProgramActivity.this, "Select a washing program!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent intent = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
+                intent.putExtra("Program", program);
                 ChooseProgramActivity.this.startActivity(intent);
+
+
             }
         });
     }
@@ -53,6 +68,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 fastProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.fast_program);
             }
         });
 
@@ -61,6 +77,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 ecoProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.eco_program);
             }
         });
 
@@ -69,6 +86,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 cottonProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.cotton_program);
             }
         });
 
@@ -77,6 +95,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 syntheticProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.synthetic_program);
             }
         });
 
@@ -85,6 +104,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 vulProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.vul_program);
             }
         });
 
@@ -93,6 +113,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 mallinaProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.mallina_program);
             }
         });
 
@@ -101,6 +122,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 whiteProgram_card.setVisibility(View.VISIBLE);
+                program = getResources().getString(R.string.white_program);
             }
         });
 
