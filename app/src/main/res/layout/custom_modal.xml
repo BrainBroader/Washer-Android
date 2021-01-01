@@ -7,7 +7,6 @@
     android:layout_marginRight="16dp"
     android:gravity="center">
 
-
     <ImageView
         android:id="@+id/closePopUpImageView"
         android:layout_width="wrap_content"

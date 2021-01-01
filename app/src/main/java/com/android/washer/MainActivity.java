@@ -1,39 +1,46 @@
 package com.android.washer;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private Button scanButton, addButton;
+public class MainActivity extends AppCompatActivity {
+
+    private Button myWashersButton, optionsButton, startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        scanButton = findViewById(R.id.scanBtn);
-        addButton = findViewById(R.id.addBtn);
+        getSupportActionBar().hide();
+        myWashersButton = findViewById(R.id.myWashersButton);
+        optionsButton = findViewById(R.id.optionsButton);
+        startButton = findViewById(R.id.startWashingButton);
         setupListeners();
     }
 
     private void setupListeners() {
-        scanButton.setOnClickListener(new View.OnClickListener() {
+        myWashersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent  = new Intent(MainActivity.this, ChooseProgramActivity.class);
-                MainActivity.this.startActivity(intent);
+                startActivity(new Intent(MainActivity.this, EditWasherActivity.class));
             }
         });
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent  = new Intent(MainActivity.this, ChooseProgramActivity.class);
-                MainActivity.this.startActivity(intent);
+
+            }
+        });
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ChooseWasherActivity.class));
             }
         });
     }
