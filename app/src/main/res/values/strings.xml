@@ -21,4 +21,28 @@
         και 30 λεπτα</string>
     <string name="notify">θέλω να ειδοποιηθώ κατα τη λήξη του πλυσίματος.</string>
     <string name="start">ΕΝΑΡΞΗ</string>
+    <string name="choose_program">Επίλεξε το πρόγραμμα πλυσίματος</string>
+    <string name="fast_program">ΠΡΟΓΡΑΜΜΑ ΓΡΗΓΟΡΗΣ ΠΛΥΣΗΣ</string>
+    <string name="eco_program">ΟΙΚΟΝΟΜΙΚΟ ΠΡΟΓΡΑΜΜΑ</string>
+    <string name="cotton_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΒΑΜΒΑΚΕΡΑ</string>
+    <string name="synthetic_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΣΥΝΘΕΤΙΚΑ</string>
+    <string name="vul_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΕΥΑΙΣΘΗΤΑ</string>
+    <string name="mallina_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΜΑΛΛΙΝΑ ΡΟΥΧΑ</string>
+    <string name="white_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΛΕΥΚΑ</string>
+    <string name="program">Πρόγραμμα</string>
+    <string name="turns">Στροφές</string>
+    <string name="temperature">Θερμοκρασία</string>
+    <string name="confirm">Επιβεβαίωση</string>
+    <string name="Continue">Συνεχεια</string>
+    <string name="choose_speed">Επίλεξε τον αριθμό στροφών</string>
+    <string name="four_hundrend">400</string>
+    <string name="eight_hundrend">800</string>
+    <string name="one_thousand">1000</string>
+    <string name="one_thousand_two">1200</string>
+    <string name="one_thousand_six">1600</string>
+    <string name="choose_temperature">Επίλεξε την θερμοκρασία</string>
+    <string name="twenty">20</string>
+    <string name="fourty">40</string>
+    <string name="sixty">60</string>
+    <string name="ninety">90</string>
 </resources>

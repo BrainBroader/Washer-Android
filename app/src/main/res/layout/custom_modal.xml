@@ -47,7 +47,8 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:textAlignment="center"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    style="@style/topic_textView"/>
 
                 <TextView
                     android:id="@+id/popUpDescriptionTextView"
@@ -69,7 +70,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="0dp"
-                    android:text="Button" />
+                    android:text="OK" />
 
             </LinearLayout>
         </LinearLayout>
