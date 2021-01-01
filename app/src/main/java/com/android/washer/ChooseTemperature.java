@@ -28,6 +28,52 @@ public class ChooseTemperature extends AppCompatActivity {
     }
 
     private void SetupListeners() {
+        SetupCards();
+        SetupInfoButtons();
+    }
+
+    private void openDialog(String title, String description){
+        InfoDialog infoDialog = new InfoDialog(title, description);
+        infoDialog.show(getSupportFragmentManager(), "info button");
+    }
+
+    private void SetupCards() {
+
+        temp20_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                temp20_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        temp40_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                temp40_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        temp60_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                temp60_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        temp90_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                temp90_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+
+    private void SetupInfoButtons() {
 
         temp20_infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +121,11 @@ public class ChooseTemperature extends AppCompatActivity {
         });
     }
 
-    private void openDialog(String title, String description){
-        InfoDialog infoDialog = new InfoDialog(title, description);
-        infoDialog.show(getSupportFragmentManager(), "info button");
+    private void ClearPickedCards() {
+        temp20_card.setVisibility(View.INVISIBLE);
+        temp40_card.setVisibility(View.INVISIBLE);
+        temp60_card.setVisibility(View.INVISIBLE);
+        temp90_card.setVisibility(View.INVISIBLE);
     }
 
     private void ConnectViews() {

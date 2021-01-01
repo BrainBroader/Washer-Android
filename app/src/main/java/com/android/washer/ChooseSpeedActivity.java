@@ -30,6 +30,8 @@ public class ChooseSpeedActivity extends AppCompatActivity {
 
     private void SetupListeners() {
 
+        SetupCards();
+
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +39,57 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ChooseSpeedActivity.this.startActivity(intent);
             }
         });
+    }
+
+    private void SetupCards() {
+
+        turns400_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                turns400_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        turns800_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                turns800_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        turns1000_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                turns1000_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        turns1200_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                turns1200_card.setVisibility(View.VISIBLE);
+            }
+        });
+
+        turns1600_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearPickedCards();
+                turns1600_card.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    private void ClearPickedCards() {
+        turns400_card.setVisibility(View.INVISIBLE);
+        turns800_card.setVisibility(View.INVISIBLE);
+        turns1000_card.setVisibility(View.INVISIBLE);
+        turns1200_card.setVisibility(View.INVISIBLE);
+        turns1600_card.setVisibility(View.INVISIBLE);
     }
 
     private void ConnectViews() {
