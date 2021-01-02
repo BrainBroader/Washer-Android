@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:maxLines="2"
-        android:text="@string/choose_washer_string"
+        android:text="@string/edit_washer_string"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
