@@ -23,7 +23,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_program);
-        HideActionBar();
+        this.getSupportActionBar().setTitle("Επιλογή προγράμματος");
 
         ConnectViews();
         SetupListeners();
@@ -229,13 +229,5 @@ public class ChooseProgramActivity extends AppCompatActivity {
         whiteProgram_TV = findViewById(R.id.whiteProgram_TV);
 
         continue_button = findViewById(R.id.continue_button);
-    }
-
-    private void HideActionBar() {
-        try
-        {
-            this.getSupportActionBar().hide();
-        }
-        catch (NullPointerException e){}
     }
 }

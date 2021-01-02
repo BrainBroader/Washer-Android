@@ -25,7 +25,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_speed);
-        HideActionBar();
+        this.getSupportActionBar().setTitle("Επιλογή στροφών");
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");
@@ -51,7 +51,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                     return;
                 }
 
-                Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperature.class);
+                Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperatureActivity.class);
                 intent.putExtra("Program", program);
                 intent.putExtra("Speed", speed);
                 ChooseSpeedActivity.this.startActivity(intent);
@@ -135,13 +135,5 @@ public class ChooseSpeedActivity extends AppCompatActivity {
         turns1600_TV = findViewById(R.id.turns1600_TV);
 
         continue_button = findViewById(R.id.continue_button);
-    }
-
-    private void HideActionBar() {
-        try
-        {
-            this.getSupportActionBar().hide();
-        }
-        catch (NullPointerException e){}
     }
 }
