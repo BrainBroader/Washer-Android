@@ -12,7 +12,7 @@
     <string name="friendly_name">Φιλική ονομασία</string>
     <string name="delete">Διαγραφή</string>
     <string name="save">Αποθήκευση</string>
-    <string name="add_or_delete_friendly_name">Διέγραψε την φιλική ονομασία του πλυντηρίου σου ή πληκτρολόγησε την δική σου</string>
+    <string name="add_or_delete_friendly_name">Διέγραψε την φιλική ονομασία του πλυντηρίου σου ή πληκτρολόγησε την δική σου.</string>
     <string name="program_name"> Πρόγραμμα βαμβακερά</string>
     <string name="spin"> Στροφές</string>
     <string name="ver_title">Επιβεβαιώστε τις ρυθμίσεις του προγράμματος σας</string>
@@ -45,4 +45,5 @@
     <string name="fourty">40</string>
     <string name="sixty">60</string>
     <string name="ninety">90</string>
+    <string name="edit_washer_string">Πρόσθεσε φιλική ονομασία στο πλυντήριό σου για να το ξεχωρίζεις από τα υπόλοιπα.</string>
 </resources>
