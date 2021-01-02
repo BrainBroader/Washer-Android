@@ -3,6 +3,7 @@ package com.android.washer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,11 +55,11 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 Log.d("SPEED: ", speed);
                 Log.d("TEMPERATURE: ", temperature);
 
-                /*Intent intent  = new Intent(ChooseTemperature.this, //Next Activity//);
+                Intent intent  = new Intent(ChooseTemperatureActivity.this, VerificationActivity.class);
                 intent.putExtra("Program", program);
                 intent.putExtra("Speed", speed);
                 intent.putExtra("Temperature", temperature);
-                ChooseTemperature.this.startActivity(intent);*/
+                startActivity(intent);
             }
         });
     }
