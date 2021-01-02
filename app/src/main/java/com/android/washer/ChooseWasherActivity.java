@@ -1,6 +1,7 @@
 package com.android.washer;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -121,6 +122,6 @@ public class ChooseWasherActivity extends AppCompatActivity implements ChooseWas
 
     @Override
     public void didSelectWasher(WasherModel washer) {
-        
+        startActivity(new Intent(ChooseWasherActivity.this, ChooseProgramActivity.class));
     }
 }

@@ -3,7 +3,6 @@ package com.android.washer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseTemperature extends AppCompatActivity {
+public class ChooseTemperatureActivity extends AppCompatActivity {
 
     ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
     CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
@@ -25,7 +24,7 @@ public class ChooseTemperature extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_temperature);
-        HideActionBar();
+        this.getSupportActionBar().setTitle("Επιλογή θερμοκρασίας");
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");
@@ -46,7 +45,7 @@ public class ChooseTemperature extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (temperature == null) {
-                    Toast.makeText(ChooseTemperature.this, "Select an option!",
+                    Toast.makeText(ChooseTemperatureActivity.this, "Select an option!",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -181,13 +180,5 @@ public class ChooseTemperature extends AppCompatActivity {
         temp90_TV = findViewById(R.id.temp90_TV);
 
         continue_button = findViewById(R.id.continue_button);
-    }
-
-    private void HideActionBar() {
-        try
-        {
-            this.getSupportActionBar().hide();
-        }
-        catch (NullPointerException e){}
     }
 }

@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Washer">
-        <activity android:name=".ChooseTemperature"></activity>
-        <activity android:name=".ChooseSpeedActivity" />
-        <activity android:name=".ChooseProgramActivity" />
+        <activity android:name=".ChooseTemperatureActivity"
+            android:parentActivityName=".ChooseSpeedActivity" />
+        <activity android:name=".ChooseSpeedActivity"
+            android:parentActivityName=".ChooseProgramActivity"/>
+        <activity android:name=".ChooseProgramActivity"
+            android:parentActivityName=".ChooseWasherActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

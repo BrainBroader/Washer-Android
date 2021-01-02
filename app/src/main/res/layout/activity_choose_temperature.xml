@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    tools:context=".ChooseTemperature">
+    tools:context=".ChooseTemperatureActivity">
 
     <TextView
         android:gravity="center"
