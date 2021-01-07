@@ -46,4 +46,5 @@
     <string name="sixty">60</string>
     <string name="ninety">90</string>
     <string name="edit_washer_string">Πρόσθεσε φιλική ονομασία στο πλυντήριό σου για να το ξεχωρίζεις από τα υπόλοιπα.</string>
+    <string name="cancel">Ακύρωση</string>
 </resources>
