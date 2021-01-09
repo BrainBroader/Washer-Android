@@ -30,7 +30,7 @@
         app:spb_stateNumberForegroundColor="#eeeeee" />
 
     <ImageView
-        android:id="@+id/doneIcon"
+        android:id="@+id/statusIcon"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_gravity="center"
@@ -38,7 +38,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/done_icon"
         android:visibility="invisible"/>
 
     <Button
