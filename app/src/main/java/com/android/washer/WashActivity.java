@@ -82,21 +82,21 @@ public class WashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(WashActivity.this)
-                        .setTitle("Ακύρωση")
-                        .setMessage("Είσαι σίγουρος ότι θες να σταματήσεις την πλύση;")
-                        .setPositiveButton("ΝΑΙ", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                countDownTimer.cancel();
-                                didWashFinish();
-                                statusImageView.setBackgroundResource(R.drawable.cancel_icon);
-                            }
-                        })
-                        .setNegativeButton("ΟΧΙ", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {}
-                        })
-                        .show();
+                    .setTitle("Ακύρωση")
+                    .setMessage("Είσαι σίγουρος ότι θες να σταματήσεις την πλύση;")
+                    .setPositiveButton("ΝΑΙ", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            countDownTimer.cancel();
+                            didWashFinish();
+                            statusImageView.setBackgroundResource(R.drawable.cancel_icon);
+                        }
+                    })
+                    .setNegativeButton("ΟΧΙ", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {}
+                    })
+                    .show();
             }
         });
     }
