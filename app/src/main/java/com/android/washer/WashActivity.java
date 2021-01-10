@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class WashActivity extends AppCompatActivity {
     Button cancelButton;
     ImageView statusImageView;
     CountDownTimer countDownTimer;
+    TextView headerDurationTextView, durationTextView, finishedTextView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,9 @@ public class WashActivity extends AppCompatActivity {
         waveLoadingView = findViewById(R.id.waveLoadingView);
         cancelButton = findViewById(R.id.cancelWashButton);
         statusImageView = findViewById(R.id.statusIcon);
+        headerDurationTextView = findViewById(R.id.headerTitleTextView);
+        durationTextView = findViewById(R.id.durationTextView);
+        finishedTextView = findViewById(R.id.finishedTextView);
         setupProgressBar();
         handleCancel();
     }
@@ -75,6 +80,9 @@ public class WashActivity extends AppCompatActivity {
         waveLoadingView.setVisibility(View.GONE);
         cancelButton.setVisibility(View.GONE);
         statusImageView.setVisibility(View.VISIBLE);
+        headerDurationTextView.setVisibility(View.GONE);
+        durationTextView.setVisibility(View.GONE);
+        finishedTextView.setVisibility(View.VISIBLE);
     }
 
     private void handleCancel() {
@@ -90,6 +98,7 @@ public class WashActivity extends AppCompatActivity {
                             countDownTimer.cancel();
                             didWashFinish();
                             statusImageView.setBackgroundResource(R.drawable.cancel_icon);
+                            finishedTextView.setText(R.string.wash_not_finished);
                         }
                     })
                     .setNegativeButton("ΟΧΙ", new DialogInterface.OnClickListener() {

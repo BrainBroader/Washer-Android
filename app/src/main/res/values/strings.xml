@@ -47,4 +47,7 @@
     <string name="ninety">90</string>
     <string name="edit_washer_string">Πρόσθεσε φιλική ονομασία στο πλυντήριό σου για να το ξεχωρίζεις από τα υπόλοιπα.</string>
     <string name="cancel">Ακύρωση</string>
+    <string name="headerDuration">Η πλύση διαρκεί ακόμα</string>
+    <string name="wash_finished">Η πλύση ολοκληρώθηκε!</string>
+    <string name="wash_not_finished">Η πλύση ακυρώθηκε!</string>
 </resources>
