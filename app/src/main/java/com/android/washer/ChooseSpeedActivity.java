@@ -1,8 +1,5 @@
 package com.android.washer;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseSpeedActivity extends AppCompatActivity {
+import androidx.cardview.widget.CardView;
+
+public class ChooseSpeedActivity extends BaseActivity {
 
     private ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
     private CardView turns400_card, turns800_card, turns1000_card, turns1200_card, turns1600_card; //Cards

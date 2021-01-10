@@ -1,27 +1,39 @@
 package com.android.washer;
 
-import android.content.res.Configuration;
-import android.content.res.Resources;
+import android.content.Context;
 import android.os.Bundle;
+import android.widget.RadioGroup;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Locale;
+public class AppSettingsActivity extends BaseActivity {
 
-public class AppSettingsActivity extends AppCompatActivity {
+    private RadioGroup radioGroup;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_settings);
+        radioGroup = findViewById(R.id.radioGroup);
+        handleRadioGroup();
     }
 
-    private void setLocale(String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Resources resources = getApplicationContext().getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+    }
+
+    private void handleRadioGroup() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radio_button_1) {
+                    LocaleHelper.setLocale(getApplicationContext(), "el");
+                } else {
+                    LocaleHelper.setLocale(getApplicationContext(), "el");
+                }
+                Runtime.getRuntime().exit(0);
+            }
+        });
     }
 }

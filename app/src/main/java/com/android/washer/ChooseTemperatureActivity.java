@@ -1,8 +1,5 @@
 package com.android.washer;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseTemperatureActivity extends AppCompatActivity {
+import androidx.cardview.widget.CardView;
+
+public class ChooseTemperatureActivity extends BaseActivity {
 
     private ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
     private CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
