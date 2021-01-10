@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class WashActivity extends AppCompatActivity {
@@ -53,12 +55,39 @@ public class WashActivity extends AppCompatActivity {
 
     private void handleProgressBar() {
         int[] progress = {0};
-        final int maxTime = 100000;
+        final int maxTime = 7200000;
+        final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
+        final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
+        final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
+        final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
+
+        headerDurationTextView.setVisibility(View.VISIBLE);
 
         //increase progress every 500ms
         countDownTimer = new CountDownTimer(maxTime, 100) {
             public void onTick(long millisUntilFinished) {
                 int currentProg = ++progress[0];
+
+                long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
+                long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+                        - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished));
+                long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+                        - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished));
+
+                String timeRemaining;
+                if (hours > 0) {
+                    timeRemaining = hours + " " + hoursString + " " + minutes + " " + minutesString;
+                } else {
+                    if (minutes == 0) {
+                        timeRemaining = minutes + " " + minuteString;
+                    } else if (minutes == 1) {
+                        timeRemaining = seconds + " " + secondsString;
+                    } else {
+                        timeRemaining = minutes + " " + minutesString;
+                    }
+                }
+                durationTextView.setText(timeRemaining);
+
                 waveLoadingView.setProgressValue(currentProg);
                 if (currentProg >= 100) {
                     this.cancel();

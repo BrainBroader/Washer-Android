@@ -53,4 +53,8 @@
     <string name="cancel_question">Είσαι σίγουρος ότι επιθυμείς να σταματήσεις την πλύση;</string>
     <string name="yes">ΝΑΙ</string>
     <string name="no">ΟΧΙ</string>
+    <string name="hours">ώρες</string>
+    <string name="minutes">λεπτά</string>
+    <string name="minute">λεπτό</string>
+    <string name="seconds">δευτερόλεπτα</string>
 </resources>
