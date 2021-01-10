@@ -46,4 +46,15 @@
     <string name="sixty">60</string>
     <string name="ninety">90</string>
     <string name="edit_washer_string">Πρόσθεσε φιλική ονομασία στο πλυντήριό σου για να το ξεχωρίζεις από τα υπόλοιπα.</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="headerDuration">Η πλύση διαρκεί ακόμα</string>
+    <string name="wash_finished">Η πλύση ολοκληρώθηκε!</string>
+    <string name="wash_not_finished">Η πλύση ακυρώθηκε!</string>
+    <string name="cancel_question">Είσαι σίγουρος ότι επιθυμείς να σταματήσεις την πλύση;</string>
+    <string name="yes">ΝΑΙ</string>
+    <string name="no">ΟΧΙ</string>
+    <string name="hours">ώρες</string>
+    <string name="minutes">λεπτά</string>
+    <string name="minute">λεπτό</string>
+    <string name="seconds">δευτερόλεπτα</string>
 </resources>

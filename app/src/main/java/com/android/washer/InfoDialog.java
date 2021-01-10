@@ -46,8 +46,6 @@ public class InfoDialog extends AppCompatDialogFragment {
         return dialog;
     }
 
-
-
     private void CreateViews(View view) {
         popUpTitleTextView = view.findViewById(R.id.popUpTitleTextView);
         popUpDescriptionTextView = view.findViewById(R.id.popUpDescriptionTextView);
