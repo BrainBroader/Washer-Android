@@ -10,11 +10,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VerificationActivity extends AppCompatActivity{
 
+    TextView programTV, speedTV, tempTV;
+    Button startButton;
+
+    String program;
+    String speed;
+    String temperature;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
+        this.getSupportActionBar().setTitle("Επιβεβαίωση Ρυθμίσεων");
 
+        Bundle bundle = getIntent().getExtras();
+        program = bundle.getString("Program");
+        speed = bundle.getString("Speed");
+        temperature = bundle.getString("Temperature");
+
+        ConnectViews();
+        SetupListeners();
 
         //Intent intent = getIntent();
         //String program_name = intent.getStringExtra(MainActivity.PROGRAM_NAME);
@@ -29,15 +44,27 @@ public class VerificationActivity extends AppCompatActivity{
         //TextView temp = findViewById(R.id.temperature);
         //temp.setText(temperature);
 
-        final Button start = findViewById(R.id.start_button);
-        start.setOnClickListener(new View.OnClickListener() {
+
+    }
+
+    private void SetupListeners() {
+        startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+    }
 
+    private void ConnectViews() {
+        programTV = findViewById(R.id.program_name);
+        speedTV = findViewById(R.id.spin);
+        tempTV = findViewById(R.id.temperature);
+        startButton = findViewById(R.id.start_button);
 
+        programTV.setText(program);
+        speedTV.setText(speed);
+        tempTV.setText(temperature);
     }
 
 
