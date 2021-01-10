@@ -31,7 +31,8 @@
         <activity android:name=".AddFriendlyNameActivity"
             android:parentActivityName=".AddFriendlyNameActivity"/>
         <activity android:name=".VerificationActivity"/>
-        <activity android:name=".WashActivity"/>
+        <activity android:name=".WashActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
