@@ -50,4 +50,7 @@
     <string name="headerDuration">Η πλύση διαρκεί ακόμα</string>
     <string name="wash_finished">Η πλύση ολοκληρώθηκε!</string>
     <string name="wash_not_finished">Η πλύση ακυρώθηκε!</string>
+    <string name="cancel_question">Είσαι σίγουρος ότι επιθυμείς να σταματήσεις την πλύση;</string>
+    <string name="yes">ΝΑΙ</string>
+    <string name="no">ΟΧΙ</string>
 </resources>
