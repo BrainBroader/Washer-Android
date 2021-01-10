@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 public class ChooseProgramActivity extends AppCompatActivity {
 
-    ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
-    CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
-    TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
-    Button continue_button;
+    private ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
+    private CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
+    private TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
+    private Button continue_button;
 
     String program;
 

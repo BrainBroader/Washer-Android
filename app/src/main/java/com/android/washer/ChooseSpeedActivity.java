@@ -13,13 +13,13 @@ import android.widget.Toast;
 
 public class ChooseSpeedActivity extends AppCompatActivity {
 
-    ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
-    CardView turns400_card, turns800_card, turns1000_card, turns1200_card, turns1600_card; //Cards
-    TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
-    Button continue_button;
+    private ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
+    private CardView turns400_card, turns800_card, turns1000_card, turns1200_card, turns1600_card; //Cards
+    private TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
+    private Button continue_button;
 
-    String program;
-    String speed;
+    private String program;
+    private String speed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

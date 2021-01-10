@@ -21,11 +21,11 @@ import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class WashActivity extends AppCompatActivity {
 
-    WaveLoadingView waveLoadingView;
-    Button cancelButton;
-    ImageView statusImageView;
-    CountDownTimer countDownTimer;
-    TextView headerDurationTextView, durationTextView, finishedTextView;
+    private WaveLoadingView waveLoadingView;
+    private Button cancelButton;
+    private ImageView statusImageView;
+    private CountDownTimer countDownTimer;
+    private TextView headerDurationTextView, durationTextView, finishedTextView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
