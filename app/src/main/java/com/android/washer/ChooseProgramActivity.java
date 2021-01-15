@@ -40,18 +40,9 @@ public class ChooseProgramActivity extends AppCompatActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (program == null) {
-                    Toast.makeText(ChooseProgramActivity.this, "Select a washing program!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 Intent intent = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
                 intent.putExtra("Program", program);
                 ChooseProgramActivity.this.startActivity(intent);
-
-
             }
         });
     }
@@ -69,6 +60,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 fastProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.fast_program);
+                EnableButton();
             }
         });
 
@@ -78,6 +70,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 ecoProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.eco_program);
+                EnableButton();
             }
         });
 
@@ -87,6 +80,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 cottonProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.cotton_program);
+                EnableButton();
             }
         });
 
@@ -96,6 +90,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 syntheticProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.synthetic_program);
+                EnableButton();
             }
         });
 
@@ -105,6 +100,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 vulProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.vul_program);
+                EnableButton();
             }
         });
 
@@ -114,6 +110,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 mallinaProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.mallina_program);
+                EnableButton();
             }
         });
 
@@ -123,6 +120,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
                 ClearPickedCards();
                 whiteProgram_card.setVisibility(View.VISIBLE);
                 program = getResources().getString(R.string.white_program);
+                EnableButton();
             }
         });
 
@@ -229,5 +227,18 @@ public class ChooseProgramActivity extends AppCompatActivity {
         whiteProgram_TV = findViewById(R.id.whiteProgram_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
     }
 }

@@ -45,12 +45,6 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (temperature == null) {
-                    Toast.makeText(ChooseTemperatureActivity.this, "Select an option!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 Log.d("PROGRAM: ", program);
                 Log.d("SPEED: ", speed);
                 Log.d("TEMPERATURE: ", temperature);
@@ -77,6 +71,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp20_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.twenty);
+                EnableButton();
             }
         });
 
@@ -86,6 +81,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp40_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.fourty);
+                EnableButton();
             }
         });
 
@@ -95,6 +91,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp60_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.sixty);
+                EnableButton();
             }
         });
 
@@ -104,9 +101,9 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp90_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.ninety);
+                EnableButton();
             }
         });
-
     }
 
     private void SetupInfoButtons() {
@@ -146,15 +143,6 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 openDialog(title, description);
             }
         });
-
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent  = new Intent(ChooseTemperature.this, .class);
-                //ChooseTemperature.this.startActivity(intent);
-
-            }
-        });
     }
 
     private void ClearPickedCards() {
@@ -181,5 +169,18 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
         temp90_TV = findViewById(R.id.temp90_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
     }
 }
