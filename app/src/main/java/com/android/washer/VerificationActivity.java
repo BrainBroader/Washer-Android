@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kofigyan.stateprogressbar.StateProgressBar;
+
 public class VerificationActivity extends AppCompatActivity{
 
     TextView programTV, speedTV, tempTV;
     Button startButton;
 
+    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
     String program;
     String speed;
     String temperature;
@@ -24,6 +27,9 @@ public class VerificationActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
         this.getSupportActionBar().setTitle("Επιβεβαίωση Ρυθμίσεων");
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");

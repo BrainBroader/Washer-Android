@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kofigyan.stateprogressbar.StateProgressBar;
+
 public class ChooseSpeedActivity extends AppCompatActivity {
 
     ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
@@ -18,6 +20,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
     TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
     Button continue_button;
 
+    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
     String program;
     String speed;
 
@@ -26,6 +29,9 @@ public class ChooseSpeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_speed);
         this.getSupportActionBar().setTitle("Επιλογή στροφών");
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");

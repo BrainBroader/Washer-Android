@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kofigyan.stateprogressbar.StateProgressBar;
+
 public class ChooseTemperatureActivity extends AppCompatActivity {
 
     ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
@@ -19,6 +21,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
     TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
     Button continue_button;
 
+    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
     String program, speed, temperature;
 
     @Override
@@ -26,6 +29,9 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_temperature);
         this.getSupportActionBar().setTitle("Επιλογή θερμοκρασίας");
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");

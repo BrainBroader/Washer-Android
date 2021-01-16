@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 public class ChooseProgramActivity extends AppCompatActivity {
 
@@ -17,6 +17,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
     TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
     Button continue_button;
 
+    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
     String program;
 
     @Override
@@ -24,6 +25,9 @@ public class ChooseProgramActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_program);
         this.getSupportActionBar().setTitle("Επιλογή προγράμματος");
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         ConnectViews();
         SetupListeners();
