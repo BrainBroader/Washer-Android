@@ -62,12 +62,13 @@ public class VerificationActivity extends AppCompatActivity{
         tempTV = findViewById(R.id.temperature);
         startButton = findViewById(R.id.start_button);
 
+        program = getResources().getString(R.string.ver_program)+ " " + program;
+        speed = getResources().getString(R.string.ver_speed)+ " " + speed;
+        temperature = getResources().getString(R.string.ver_temp)+ " " +temperature;
+
         programTV.setText(program);
         speedTV.setText(speed);
         tempTV.setText(temperature);
+
     }
-
-
-
-
 }

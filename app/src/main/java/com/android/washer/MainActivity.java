@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button myWashersButton, optionsButton, startButton;
+    private Button myWashersButton, optionsButton, startButton, overrideButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         myWashersButton = findViewById(R.id.myWashersButton);
         optionsButton = findViewById(R.id.optionsButton);
         startButton = findViewById(R.id.startWashingButton);
+        overrideButton = findViewById(R.id.overrideButton);
+
         setupListeners();
     }
 
@@ -41,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ChooseWasherActivity.class));
+            }
+        });
+
+        overrideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChooseProgramActivity.class));
             }
         });
     }

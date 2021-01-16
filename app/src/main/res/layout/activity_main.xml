@@ -48,6 +48,14 @@
             android:text="@string/start_washing_string"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/overrideButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/red"
+            android:text="Override" />
+
     </LinearLayout>
 
 
