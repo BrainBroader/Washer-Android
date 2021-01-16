@@ -2,6 +2,7 @@ package com.android.washer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class VerificationActivity extends AppCompatActivity{
     String program;
     String speed;
     String temperature;
+    int duration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,30 +30,18 @@ public class VerificationActivity extends AppCompatActivity{
         speed = bundle.getString("Speed");
         temperature = bundle.getString("Temperature");
 
+        SetupDuration();
         ConnectViews();
         SetupListeners();
-
-        //Intent intent = getIntent();
-        //String program_name = intent.getStringExtra(MainActivity.PROGRAM_NAME);
-        //String spin = intent.getStringExtra(MainActivity.SPIN);
-        //String temperature = intent.getStringExtra(MainActivity.TEMP);
-
-
-        //TextView programName = findViewById(R.id.program_name);
-        //.setText(program_name);
-        //TextView speed = findViewById(R.id.spin);
-        //speed.setText(spin);
-        //TextView temp = findViewById(R.id.temperature);
-        //temp.setText(temperature);
-
-
     }
 
     private void SetupListeners() {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent  = new Intent(VerificationActivity.this, WashActivity.class);
+                intent.putExtra("Duration", duration);
+                startActivity(intent);
             }
         });
     }
@@ -69,6 +59,23 @@ public class VerificationActivity extends AppCompatActivity{
         programTV.setText(program);
         speedTV.setText(speed);
         tempTV.setText(temperature);
+    }
 
+    private void SetupDuration() {
+        if (program.equals(getResources().getString(R.string.fast))) {
+            duration = 720000;
+        } else if (program.equals(getResources().getString(R.string.eco))) {
+            duration = 8600000;
+        } else if (program.equals(getResources().getString(R.string.cotton))) {
+            duration = 1500000;
+        } else if (program.equals(getResources().getString(R.string.synthetic))) {
+            duration = 3700000;
+        } else if (program.equals(getResources().getString(R.string.vul))) {
+            duration = 5500000;
+        } else if (program.equals(getResources().getString(R.string.mallina))) {
+            duration = 7200000;
+        } else if (program.equals(getResources().getString(R.string.white))) {
+            duration = 9900000;
+        }
     }
 }
