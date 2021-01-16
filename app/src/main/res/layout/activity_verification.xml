@@ -22,7 +22,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.05">
+        android:layout_weight="0.05"
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:layout_width="250dp"
@@ -53,7 +54,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="120dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
                     android:layout_gravity="center_horizontal">
 
 
@@ -67,15 +69,16 @@
                             android:layout_width="24sp"
                             android:layout_height="24sp"
                             android:src="@drawable/clothes_short_sleeve"
-                            android:contentDescription="@string/program_name" />
+                            android:tint="@color/textColor"/>
 
                         <TextView
                             android:id="@+id/program_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/program_name"
+                            android:text="Πρόγραμμα: Βαμβακερά"
                             android:textAlignment="center"
                             android:textSize="18sp"
+                            android:textColor="@color/textColor"
                             android:layout_toRightOf="@+id/clothes"
                             android:layout_marginLeft="10dp"/>
 
@@ -97,9 +100,10 @@
                             android:id="@+id/spin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/spin"
+                            android:text="Στροφές: 1200"
                             android:textAlignment="center"
                             android:textSize="18sp"
+                            android:textColor="@color/textColor"
                             android:layout_toRightOf="@+id/turns"
                             android:layout_marginLeft="10dp"/>
 
@@ -121,8 +125,9 @@
                             android:id="@+id/temperature"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Temperature"
+                            android:text="Θερμοκρασία: 40"
                             android:textSize="18sp"
+                            android:textColor="@color/textColor"
                             android:layout_toRightOf="@+id/vector"
                             android:layout_marginLeft="10dp"/>
 
@@ -141,7 +146,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp">
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp">
 
                     <ImageView
                         android:id = "@+id/stopwatch"
@@ -154,10 +162,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="15sp"
-                        android:paddingEnd="50sp"
                         android:text="@string/duration"
                         android:textAlignment="textStart"
                         android:textSize="18sp"
+                        android:textColor="@color/textColor"
                         android:layout_toRightOf="@+id/stopwatch"/>
 
                 </RelativeLayout>
@@ -166,7 +174,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp">
 
                     <CheckBox
                         android:id="@+id/checkbox"
@@ -179,9 +189,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/notify"
                         android:paddingStart="15sp"
-                        android:paddingEnd="50sp"
                         android:textAlignment="textStart"
                         android:textSize="18sp"
+                        android:textColor="@color/textColor"
                         android:layout_toRightOf="@+id/checkbox"/>
 
                 </RelativeLayout>

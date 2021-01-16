@@ -19,16 +19,23 @@
     <string name="Temperature"> Θερμοκρασία</string>
     <string name="duration">Το προγραμμα σας θα διαρκεσει 2 ωρες
         και 30 λεπτα</string>
-    <string name="notify">θέλω να ειδοποιηθώ κατα τη λήξη του πλυσίματος.</string>
+    <string name="notify">Θέλω να ειδοποιηθώ κατα τη λήξη του πλυσίματος.</string>
     <string name="start">ΕΝΑΡΞΗ</string>
     <string name="choose_program">Επίλεξε το πρόγραμμα πλυσίματος</string>
-    <string name="fast_program">ΠΡΟΓΡΑΜΜΑ ΓΡΗΓΟΡΗΣ ΠΛΥΣΗΣ</string>
-    <string name="eco_program">ΟΙΚΟΝΟΜΙΚΟ ΠΡΟΓΡΑΜΜΑ</string>
-    <string name="cotton_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΒΑΜΒΑΚΕΡΑ</string>
-    <string name="synthetic_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΣΥΝΘΕΤΙΚΑ</string>
-    <string name="vul_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΕΥΑΙΣΘΗΤΑ</string>
-    <string name="mallina_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΜΑΛΛΙΝΑ ΡΟΥΧΑ</string>
-    <string name="white_program">ΠΡΟΓΡΑΜΜΑ ΓΙΑ ΛΕΥΚΑ</string>
+    <string name="fast_program">ΠΡΌΓΡΑΜΜΑ ΓΡΉΓΟΡΗΣ ΠΛΎΣΗΣ</string>
+    <string name="eco_program">ΟΙΚΟΝΟΜΙΚΌ ΠΡΌΓΡΑΜΜΑ</string>
+    <string name="cotton_program">ΠΡΌΓΡΑΜΜΑ ΓΙΑ ΒΑΜΒΑΚΕΡΆ</string>
+    <string name="synthetic_program">ΠΡΌΓΡΑΜΜΑ ΓΙΑ ΣΥΝΘΕΤΙΚΆ</string>
+    <string name="vul_program">ΠΡΌΓΡΑΜΜΑ ΓΙΑ ΕΥΑΊΣΘΗΤΑ</string>
+    <string name="mallina_program">ΠΡΌΓΡΑΜΜΑ ΓΙΑ ΜΆΛΛΙΝΑ ΡΟΎΧΑ</string>
+    <string name="white_program">ΠΡΌΓΡΑΜΜΑ ΓΙΑ ΛΕΥΚΆ</string>
+    <string name="fast">Γρήγορο</string>
+    <string name="eco">Οικονομικό</string>
+    <string name="cotton">Βαμβακερά</string>
+    <string name="synthetic">Συνθετικά</string>
+    <string name="vul">Ευαίσθητα</string>
+    <string name="mallina">Μάλλινα</string>
+    <string name="white">Λευκά</string>
     <string name="program">Πρόγραμμα</string>
     <string name="turns">Στροφές</string>
     <string name="temperature">Θερμοκρασία</string>
@@ -57,4 +64,7 @@
     <string name="minutes">λεπτά</string>
     <string name="minute">λεπτό</string>
     <string name="seconds">δευτερόλεπτα</string>
+    <string name="ver_program">Πρόγραμμα:</string>
+    <string name="ver_speed">Στροφές:</string>
+    <string name="ver_temp">Θερμοκρασία:</string>
 </resources>

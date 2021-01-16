@@ -59,7 +59,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 fastProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.fast_program);
+                program = getResources().getString(R.string.fast);
                 EnableButton();
             }
         });
@@ -69,7 +69,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 ecoProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.eco_program);
+                program = getResources().getString(R.string.eco);
                 EnableButton();
             }
         });
@@ -79,7 +79,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 cottonProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.cotton_program);
+                program = getResources().getString(R.string.cotton);
                 EnableButton();
             }
         });
@@ -89,7 +89,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 syntheticProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.synthetic_program);
+                program = getResources().getString(R.string.synthetic);
                 EnableButton();
             }
         });
@@ -99,7 +99,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 vulProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.vul_program);
+                program = getResources().getString(R.string.vul);
                 EnableButton();
             }
         });
@@ -109,7 +109,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 mallinaProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.mallina_program);
+                program = getResources().getString(R.string.mallina);
                 EnableButton();
             }
         });
@@ -119,7 +119,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 whiteProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.white_program);
+                program = getResources().getString(R.string.white);
                 EnableButton();
             }
         });
