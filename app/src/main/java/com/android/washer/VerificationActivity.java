@@ -16,7 +16,7 @@ public class VerificationActivity extends AppCompatActivity{
     TextView programTV, speedTV, tempTV;
     Button startButton;
 
-    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
+    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
     String program;
     String speed;
     String temperature;

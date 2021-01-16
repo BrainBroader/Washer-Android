@@ -17,7 +17,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
     TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
     Button continue_button;
 
-    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
+    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
     String program;
 
     @Override
@@ -44,7 +44,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
+                Intent intent = new Intent(ChooseProgramActivity.this, ChooseTemperatureActivity.class);
                 intent.putExtra("Program", program);
                 ChooseProgramActivity.this.startActivity(intent);
             }

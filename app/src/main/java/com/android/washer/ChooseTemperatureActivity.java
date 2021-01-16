@@ -21,8 +21,8 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
     TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
     Button continue_button;
 
-    String[] descriptionData = {"Πρόγραμμα", "Στροφές", "Θερμοκρασία", "Επιβεβαίωση"};
-    String program, speed, temperature;
+    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    String program, temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");
-        speed = bundle.getString("Speed");
 
         ConnectViews();
         SetupListeners();
@@ -52,12 +51,10 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("PROGRAM: ", program);
-                Log.d("SPEED: ", speed);
                 Log.d("TEMPERATURE: ", temperature);
 
-                Intent intent  = new Intent(ChooseTemperatureActivity.this, VerificationActivity.class);
+                Intent intent  = new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class);
                 intent.putExtra("Program", program);
-                intent.putExtra("Speed", speed);
                 intent.putExtra("Temperature", temperature);
                 startActivity(intent);
             }
