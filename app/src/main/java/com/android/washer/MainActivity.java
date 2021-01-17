@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         myWashersButton = findViewById(R.id.myWashersButton);
         optionsButton = findViewById(R.id.optionsButton);
         startButton = findViewById(R.id.startWashingButton);
+
         setupListeners();
     }
 
