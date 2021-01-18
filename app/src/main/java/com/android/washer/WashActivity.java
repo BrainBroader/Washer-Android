@@ -1,6 +1,7 @@
 package com.android.washer;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -45,6 +46,11 @@ public class WashActivity extends AppCompatActivity {
         finishedTextView = findViewById(R.id.finishedTextView);
         setupProgressBar();
         handleCancel();
+    }
+
+    @Override
+    public void onBackPressed() {
+        handleMinimize();
     }
 
     private void setupProgressBar() {
@@ -142,5 +148,23 @@ public class WashActivity extends AppCompatActivity {
                     .show();
             }
         });
+    }
+
+    private void handleMinimize() {
+        new MaterialAlertDialogBuilder(WashActivity.this)
+            .setTitle(R.string.minimize)
+            .setMessage(R.string.minimize_question)
+            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(WashActivity.this, MainActivity.class);
+                    WashActivity.this.startActivity(intent);
+                }
+            })
+            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {}
+            })
+            .show();
     }
 }
