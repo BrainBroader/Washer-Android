@@ -70,4 +70,5 @@
     <string name="ver_temp">Θερμοκρασία:</string>
     <string name="minimize_question">Συνεχίζοντας η διαδικασία θα λειτουργεί στο background</string>
     <string name="minimize">Παράλληλη λειτουργία</string>
+    <string name="and">και</string>
 </resources>

@@ -38,6 +38,10 @@ public class VerificationActivity extends AppCompatActivity{
         speed = bundle.getString("Speed");
         temperature = bundle.getString("Temperature");
 
+        InitUI();
+    }
+
+    public void InitUI() {
         SetupDuration();
         ConnectViews();
         SetupListeners();
@@ -105,10 +109,19 @@ public class VerificationActivity extends AppCompatActivity{
         String timeRemaining;
         if (hours > 0) {
             if (hours == 1) {
-                timeRemaining = hours + " " + hourString + " " + minutes + " " + minutesString;
+                timeRemaining = hours + " " + hourString;
             } else  {
-                timeRemaining = hours + " " + hoursString + " " + minutes + " " + minutesString;
+                timeRemaining = hours + " " + hoursString;
             }
+
+            if (minutes == 0) {
+
+            } else if (minutes == 1) {
+                timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minuteString;
+            } else {
+                timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minutesString;
+            }
+
         } else {
             if (minutes == 0) {
                 timeRemaining = minutes + " " + minuteString;
