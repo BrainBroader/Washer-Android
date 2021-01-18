@@ -17,9 +17,9 @@
     <string name="spin"> Στροφές</string>
     <string name="ver_title">Επιβεβαιώστε τις ρυθμίσεις του προγράμματος σας</string>
     <string name="Temperature"> Θερμοκρασία</string>
-    <string name="duration">Το προγραμμα σας θα διαρκεσει 2 ωρες
-        και 30 λεπτα</string>
-    <string name="notify">Θέλω να ειδοποιηθώ κατα τη λήξη του πλυσίματος.</string>
+    <string name="duration">Το πρόγραμμα σας θα διαρκέσει 2 ώρες και 30 λεπτά</string>
+    <string name="duration2">Το πρόγραμμα σας θα διαρκέσει</string>
+    <string name="notify">Θέλω να ειδοποιηθώ κατά τη λήξη του πλυσίματος.</string>
     <string name="start">ΕΝΑΡΞΗ</string>
     <string name="choose_program">Επίλεξε το πρόγραμμα πλυσίματος</string>
     <string name="fast_program">ΠΡΌΓΡΑΜΜΑ ΓΡΉΓΟΡΗΣ ΠΛΎΣΗΣ</string>
