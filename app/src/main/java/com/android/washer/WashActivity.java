@@ -100,7 +100,7 @@ public class WashActivity extends AppCompatActivity {
                     } else {
                         timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minutesString;
                     }
-                    
+
                 } else {
                     if (minutes == 0) {
                         timeRemaining = minutes + " " + minuteString;

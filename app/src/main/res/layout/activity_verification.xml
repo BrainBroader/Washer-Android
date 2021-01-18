@@ -79,8 +79,7 @@
                             android:id="@+id/clothes"
                             android:layout_width="24sp"
                             android:layout_height="24sp"
-                            android:src="@drawable/clothes_short_sleeve"
-                            android:tint="@color/textColor"/>
+                            android:src="@drawable/clothes_short_sleeve"/>
 
                         <TextView
                             android:id="@+id/program_name"
