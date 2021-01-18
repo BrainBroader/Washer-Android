@@ -57,4 +57,7 @@
     <string name="minutes">λεπτά</string>
     <string name="minute">λεπτό</string>
     <string name="seconds">δευτερόλεπτα</string>
+    <string name="app_language">Γλώσσα εφαρμογής</string>
+    <string name="greek">Ελληνικά</string>
+    <string name="english">Αγγλικά</string>
 </resources>
