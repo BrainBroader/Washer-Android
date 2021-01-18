@@ -67,4 +67,7 @@
     <string name="ver_program">Πρόγραμμα:</string>
     <string name="ver_speed">Στροφές:</string>
     <string name="ver_temp">Θερμοκρασία:</string>
+    <string name="app_language">Γλώσσα εφαρμογής</string>
+    <string name="greek">Ελληνικά</string>
+    <string name="english">Αγγλικά</string>
 </resources>

@@ -14,15 +14,15 @@ import android.widget.Toast;
 
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
-public class ChooseTemperatureActivity extends AppCompatActivity {
+public class ChooseTemperatureActivity extends BaseActivity {
 
-    ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
-    CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
-    TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
-    Button continue_button;
+    private ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
+    private CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
+    private TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
+    private Button continue_button;
 
-    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
-    String program, temperature;
+    private String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    private String program, temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

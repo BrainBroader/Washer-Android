@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
-public class VerificationActivity extends AppCompatActivity{
+public class VerificationActivity extends BaseActivity{
 
     TextView programTV, speedTV, tempTV;
     Button startButton;
