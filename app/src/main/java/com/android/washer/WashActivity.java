@@ -23,7 +23,7 @@ import me.itangqi.waveloadingview.WaveLoadingView;
 public class WashActivity extends AppCompatActivity {
 
     WaveLoadingView waveLoadingView;
-    Button cancelButton;
+    Button cancelButton, goHomeButton;
     ImageView statusImageView;
     CountDownTimer countDownTimer;
     TextView headerDurationTextView, durationTextView, finishedTextView;
@@ -40,12 +40,25 @@ public class WashActivity extends AppCompatActivity {
 
         waveLoadingView = findViewById(R.id.waveLoadingView);
         cancelButton = findViewById(R.id.cancelWashButton);
+        goHomeButton = findViewById(R.id.goHomeButton);
         statusImageView = findViewById(R.id.statusIcon);
         headerDurationTextView = findViewById(R.id.headerTitleTextView);
         durationTextView = findViewById(R.id.durationTextView);
         finishedTextView = findViewById(R.id.finishedTextView);
         setupProgressBar();
+        SetupListeners();
+    }
+
+    private void SetupListeners() {
         handleCancel();
+
+        goHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WashActivity.this, MainActivity.class);
+                WashActivity.this.startActivity(intent);
+            }
+        });
     }
 
     /*@Override
@@ -117,6 +130,7 @@ public class WashActivity extends AppCompatActivity {
                     this.cancel();
                     didWashFinish();
                     statusImageView.setBackgroundResource(R.drawable.done_icon);
+                    goHomeButton.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -152,6 +166,7 @@ public class WashActivity extends AppCompatActivity {
                             didWashFinish();
                             statusImageView.setBackgroundResource(R.drawable.cancel_icon);
                             finishedTextView.setText(R.string.wash_not_finished);
+                            goHomeButton.setVisibility(View.VISIBLE);
                         }
                     })
                     .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
