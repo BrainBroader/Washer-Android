@@ -91,6 +91,7 @@ public class VerificationActivity extends AppCompatActivity{
 
     private void TimeSetup(long millisUntilFinished) {
         final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
+        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
         final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
         final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
         final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
@@ -103,7 +104,11 @@ public class VerificationActivity extends AppCompatActivity{
 
         String timeRemaining;
         if (hours > 0) {
-            timeRemaining = hours + " " + hoursString + " " + minutes + " " + minutesString;
+            if (hours == 1) {
+                timeRemaining = hours + " " + hourString + " " + minutes + " " + minutesString;
+            } else  {
+                timeRemaining = hours + " " + hoursString + " " + minutes + " " + minutesString;
+            }
         } else {
             if (minutes == 0) {
                 timeRemaining = minutes + " " + minuteString;
