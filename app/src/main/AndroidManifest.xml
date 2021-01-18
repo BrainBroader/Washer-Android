@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Washer">
         <activity android:name=".ChooseTemperatureActivity"
-            android:parentActivityName=".ChooseSpeedActivity" />
+            android:parentActivityName=".ChooseProgramActivity" />
         <activity android:name=".ChooseSpeedActivity"
-            android:parentActivityName=".ChooseProgramActivity"/>
+            android:parentActivityName=".ChooseTemperatureActivity"/>
         <activity android:name=".ChooseProgramActivity"
             android:parentActivityName=".ChooseWasherActivity"/>
         <activity android:name=".MainActivity">
@@ -30,7 +30,8 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".AddFriendlyNameActivity"
             android:parentActivityName=".AddFriendlyNameActivity"/>
-        <activity android:name=".VerificationActivity"/>
+        <activity android:name=".VerificationActivity"
+            android:parentActivityName=".ChooseSpeedActivity"/>
         <activity android:name=".WashActivity"
             android:parentActivityName=".MainActivity"/>
     </application>
