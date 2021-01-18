@@ -1,5 +1,8 @@
 package com.android.washer;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
 public class ChooseTemperatureActivity extends BaseActivity {
 
@@ -18,7 +21,8 @@ public class ChooseTemperatureActivity extends BaseActivity {
     private TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
     private Button continue_button;
 
-    private String program, speed, temperature;
+    private String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    private String program, temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +30,11 @@ public class ChooseTemperatureActivity extends BaseActivity {
         setContentView(R.layout.activity_choose_temperature);
         this.getSupportActionBar().setTitle("Επιλογή θερμοκρασίας");
 
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
+
         Bundle bundle = getIntent().getExtras();
         program = bundle.getString("Program");
-        speed = bundle.getString("Speed");
 
         ConnectViews();
         SetupListeners();
@@ -44,19 +50,11 @@ public class ChooseTemperatureActivity extends BaseActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (temperature == null) {
-                    Toast.makeText(ChooseTemperatureActivity.this, "Select an option!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 Log.d("PROGRAM: ", program);
-                Log.d("SPEED: ", speed);
                 Log.d("TEMPERATURE: ", temperature);
 
-                Intent intent  = new Intent(ChooseTemperatureActivity.this, VerificationActivity.class);
+                Intent intent  = new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class);
                 intent.putExtra("Program", program);
-                intent.putExtra("Speed", speed);
                 intent.putExtra("Temperature", temperature);
                 startActivity(intent);
             }
@@ -76,6 +74,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
                 ClearPickedCards();
                 temp20_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.twenty);
+                EnableButton();
             }
         });
 
@@ -85,6 +84,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
                 ClearPickedCards();
                 temp40_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.fourty);
+                EnableButton();
             }
         });
 
@@ -94,6 +94,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
                 ClearPickedCards();
                 temp60_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.sixty);
+                EnableButton();
             }
         });
 
@@ -103,9 +104,9 @@ public class ChooseTemperatureActivity extends BaseActivity {
                 ClearPickedCards();
                 temp90_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.ninety);
+                EnableButton();
             }
         });
-
     }
 
     private void SetupInfoButtons() {
@@ -145,15 +146,6 @@ public class ChooseTemperatureActivity extends BaseActivity {
                 openDialog(title, description);
             }
         });
-
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent  = new Intent(ChooseTemperature.this, .class);
-                //ChooseTemperature.this.startActivity(intent);
-
-            }
-        });
     }
 
     private void ClearPickedCards() {
@@ -180,5 +172,18 @@ public class ChooseTemperatureActivity extends BaseActivity {
         temp90_TV = findViewById(R.id.temp90_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
     }
 }

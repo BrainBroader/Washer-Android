@@ -10,7 +10,8 @@
     <color name="grey">#676262</color>
     <color name="clear">#00FFFFFF</color>
     <color name="red">#810C0C</color>
-    <color name="textColor">#FF000000</color>
+    <color name="textColor2">#FF000000</color>
+    <color name="textColor">#676262</color>
     <color name="colorAsh">#e2e2e2</color>
     <color name="defaultColor">#89000000</color>
 </resources>
