@@ -29,6 +29,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
 
+        //stateProgressBar.setStateDescriptionTypeface("fonts/Ubuntu-L.ttf");
+
         ConnectViews();
         SetupListeners();
     }

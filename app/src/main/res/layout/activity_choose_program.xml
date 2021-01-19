@@ -37,6 +37,7 @@
             app:spb_stateNumberForegroundColor="#eeeeee"
             app:spb_currentStateDescriptionColor="@color/purple_700"
             app:spb_stateDescriptionColor="#808080"
+            app:spb_stateDescriptionSize="13sp"
             app:spb_animateToCurrentProgressState="true"
             app:spb_checkStateCompleted="true"/>
 
