@@ -61,10 +61,10 @@ public class WashActivity extends AppCompatActivity {
         });
     }
 
-    /*@Override
+    @Override
     public void onBackPressed() {
         handleMinimize();
-    }*/
+    }
 
     private void setupProgressBar() {
         //avoid weird effect in start of animation
