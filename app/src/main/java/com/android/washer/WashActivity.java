@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.concurrent.TimeUnit;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
@@ -185,8 +187,11 @@ public class WashActivity extends AppCompatActivity {
             .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(WashActivity.this, MainActivity.class);
-                    WashActivity.this.startActivity(intent);
+                    minimizeFunction();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+
                 }
             })
             .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -194,5 +199,9 @@ public class WashActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {}
             })
             .show();
+    }
+
+    private void minimizeFunction() {
+        EventBus.getDefault().post("MINIMIZE_FUNCTION");
     }
 }

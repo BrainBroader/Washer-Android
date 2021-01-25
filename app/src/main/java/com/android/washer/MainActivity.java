@@ -2,10 +2,15 @@ package com.android.washer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +24,19 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectViews();
         setupListeners();
+        EventBus.getDefault().register(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(String text) {
+        if (text.equals("MINIMIZE_FUNCTION")) {
+            initMinimize();
+        }
+    };
+
+    private void initMinimize() {
+        Log.d("MINIMIZE", "MPHKA");
+        minimizedActivityButton.setVisibility(View.VISIBLE);
     }
 
     private void ConnectViews() {
