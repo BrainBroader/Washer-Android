@@ -73,4 +73,7 @@
     <string name="and">και</string>
     <string name="goHome">Αρχική Σελίδα</string>
     <string name="activeWash">Ενεργό πλύσιμο</string>
+    <string name="app_language">Γλώσσα εφαρμογής</string>
+    <string name="greek">Ελληνικά</string>
+    <string name="english">Αγγλικά</string>
 </resources>

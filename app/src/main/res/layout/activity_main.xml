@@ -28,14 +28,14 @@
         <Button
             android:id="@+id/myWashersButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/my_washers_string"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/optionsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:text="@string/app_options_string"
             android:textAllCaps="false" />
@@ -43,7 +43,7 @@
         <Button
             android:id="@+id/startWashingButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:text="@string/start_washing_string"
             android:textAllCaps="false" />
@@ -60,8 +60,5 @@
             android:visibility="gone"/>
 
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

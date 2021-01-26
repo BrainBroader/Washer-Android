@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 
-public class AddFriendlyNameActivity extends AppCompatActivity {
+public class AddFriendlyNameActivity extends BaseActivity {
 
     private EditText friendlyNameEditText;
     private Button deleteButton, saveButton;

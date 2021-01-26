@@ -1,7 +1,5 @@
 package com.android.washer;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
-public class ChooseProgramActivity extends AppCompatActivity {
+import androidx.cardview.widget.CardView;
 
-    ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
-    CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
-    TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
-    Button continue_button;
+public class ChooseProgramActivity extends BaseActivity {
+
+    private ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
+    private CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
+    private TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
+    private Button continue_button;
 
     String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
     String program;

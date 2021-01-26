@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,7 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChooseWasherActivity extends AppCompatActivity implements ChooseWasherRecyclerAdapter.SelectedWasher {
+public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRecyclerAdapter.SelectedWasher {
 
     private TextView headerTextView;
     private RecyclerView recyclerView;

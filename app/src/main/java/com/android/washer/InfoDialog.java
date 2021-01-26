@@ -16,12 +16,12 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class InfoDialog extends AppCompatDialogFragment {
 
-    String title;
-    String description;
+    private String title;
+    private String description;
 
-    TextView popUpTitleTextView, popUpDescriptionTextView;
-    Button popUpButton;
-    ImageView closePopUpImageView;
+    private TextView popUpTitleTextView, popUpDescriptionTextView;
+    private Button popUpButton;
+    private ImageView closePopUpImageView;
 
     public InfoDialog(String title, String description) {
         this.title = title;

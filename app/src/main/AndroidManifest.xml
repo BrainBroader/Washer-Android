@@ -35,6 +35,8 @@
             android:parentActivityName=".ChooseSpeedActivity"/>
         <activity android:name=".WashActivity"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name=".AppSettingsActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

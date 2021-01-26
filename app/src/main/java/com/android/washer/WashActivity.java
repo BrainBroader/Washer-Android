@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -22,13 +20,13 @@ import java.util.concurrent.TimeUnit;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
-public class WashActivity extends AppCompatActivity {
+public class WashActivity extends BaseActivity {
 
-    WaveLoadingView waveLoadingView;
-    Button cancelButton, goHomeButton;
-    ImageView statusImageView;
-    CountDownTimer countDownTimer;
-    TextView headerDurationTextView, durationTextView, finishedTextView;
+    private WaveLoadingView waveLoadingView;
+    private Button cancelButton, goHomeButton;
+    private ImageView statusImageView;
+    private CountDownTimer countDownTimer;
+    private TextView headerDurationTextView, durationTextView, finishedTextView;
 
     int duration;
 
