@@ -32,7 +32,8 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".AddFriendlyNameActivity"
             android:parentActivityName=".AddFriendlyNameActivity"/>
-        <activity android:name=".VerificationActivity"/>
+        <activity android:name=".VerificationActivity"
+            android:parentActivityName=".ChooseSpeedActivity"/>
         <activity android:name=".WashActivity"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".AppSettingsActivity"
