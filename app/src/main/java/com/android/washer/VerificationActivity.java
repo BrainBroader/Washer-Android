@@ -13,7 +13,7 @@ import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import java.util.concurrent.TimeUnit;
 
-public class VerificationActivity extends AppCompatActivity{
+public class VerificationActivity extends BaseActivity {
 
     TextView programTV, speedTV, tempTV, durationTV;
     Button startButton;
