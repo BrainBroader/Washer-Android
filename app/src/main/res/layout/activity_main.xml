@@ -48,17 +48,6 @@
             android:text="@string/start_washing_string"
             android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/minimizedActivityButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/activeWash"
-            android:backgroundTint="@color/red"
-            android:textAllCaps="false"
-            android:layout_gravity="center_horizontal"
-            android:visibility="gone"/>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
