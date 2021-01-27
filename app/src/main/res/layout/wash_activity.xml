@@ -52,6 +52,20 @@
         android:text="@string/cancel"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/goHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/purple_700"
+        android:text="@string/goHome"
+        android:textAllCaps="false"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/headerTitleTextView"
         android:layout_width="wrap_content"

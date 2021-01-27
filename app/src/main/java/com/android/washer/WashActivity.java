@@ -1,6 +1,7 @@
 package com.android.washer;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -13,6 +14,8 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.concurrent.TimeUnit;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
@@ -20,7 +23,7 @@ import me.itangqi.waveloadingview.WaveLoadingView;
 public class WashActivity extends BaseActivity {
 
     private WaveLoadingView waveLoadingView;
-    private Button cancelButton;
+    private Button cancelButton, goHomeButton;
     private ImageView statusImageView;
     private CountDownTimer countDownTimer;
     private TextView headerDurationTextView, durationTextView, finishedTextView;
@@ -37,12 +40,30 @@ public class WashActivity extends BaseActivity {
 
         waveLoadingView = findViewById(R.id.waveLoadingView);
         cancelButton = findViewById(R.id.cancelWashButton);
+        goHomeButton = findViewById(R.id.goHomeButton);
         statusImageView = findViewById(R.id.statusIcon);
         headerDurationTextView = findViewById(R.id.headerTitleTextView);
         durationTextView = findViewById(R.id.durationTextView);
         finishedTextView = findViewById(R.id.finishedTextView);
         setupProgressBar();
+        SetupListeners();
+    }
+
+    private void SetupListeners() {
         handleCancel();
+
+        goHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WashActivity.this, MainActivity.class);
+                WashActivity.this.startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        handleMinimize();
     }
 
     private void setupProgressBar() {
@@ -60,6 +81,7 @@ public class WashActivity extends BaseActivity {
         int[] progress = {0};
         final int maxTime = duration;
         final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
+        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
         final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
         final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
         final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
@@ -79,7 +101,19 @@ public class WashActivity extends BaseActivity {
 
                 String timeRemaining;
                 if (hours > 0) {
-                    timeRemaining = hours + " " + hoursString + " " + minutes + " " + minutesString;
+                    if (hours == 1) {
+                        timeRemaining = hours + " " + hourString;
+                    } else  {
+                        timeRemaining = hours + " " + hoursString;
+                    }
+
+                    if (minutes == 0) {
+                    } else if (minutes == 1) {
+                        timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minuteString;
+                    } else {
+                        timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minutesString;
+                    }
+
                 } else {
                     if (minutes == 0) {
                         timeRemaining = minutes + " " + minuteString;
@@ -96,6 +130,7 @@ public class WashActivity extends BaseActivity {
                     this.cancel();
                     didWashFinish();
                     statusImageView.setBackgroundResource(R.drawable.done_icon);
+                    goHomeButton.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -131,6 +166,7 @@ public class WashActivity extends BaseActivity {
                             didWashFinish();
                             statusImageView.setBackgroundResource(R.drawable.cancel_icon);
                             finishedTextView.setText(R.string.wash_not_finished);
+                            goHomeButton.setVisibility(View.VISIBLE);
                         }
                     })
                     .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -140,5 +176,30 @@ public class WashActivity extends BaseActivity {
                     .show();
             }
         });
+    }
+
+    private void handleMinimize() {
+        new MaterialAlertDialogBuilder(WashActivity.this)
+            .setTitle(R.string.minimize)
+            .setMessage(R.string.minimize_question)
+            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    minimizeFunction();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+
+                }
+            })
+            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {}
+            })
+            .show();
+    }
+
+    private void minimizeFunction() {
+        EventBus.getDefault().post("MINIMIZE_FUNCTION");
     }
 }

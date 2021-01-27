@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.kofigyan.stateprogressbar.StateProgressBar;
 
-public class VerificationActivity extends BaseActivity{
+import java.util.concurrent.TimeUnit;
 
-    TextView programTV, speedTV, tempTV;
+public class VerificationActivity extends BaseActivity {
+
+    TextView programTV, speedTV, tempTV, durationTV;
     Button startButton;
 
     String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
@@ -36,9 +38,14 @@ public class VerificationActivity extends BaseActivity{
         speed = bundle.getString("Speed");
         temperature = bundle.getString("Temperature");
 
+        InitUI();
+    }
+
+    public void InitUI() {
         SetupDuration();
         ConnectViews();
         SetupListeners();
+        TimeSetup(duration);
     }
 
     private void SetupListeners() {
@@ -57,6 +64,7 @@ public class VerificationActivity extends BaseActivity{
         speedTV = findViewById(R.id.spin);
         tempTV = findViewById(R.id.temperature);
         startButton = findViewById(R.id.start_button);
+        durationTV = findViewById(R.id.duration);
 
         program = getResources().getString(R.string.ver_program)+ " " + program;
         speed = getResources().getString(R.string.ver_speed)+ " " + speed;
@@ -83,5 +91,47 @@ public class VerificationActivity extends BaseActivity{
         } else if (program.equals(getResources().getString(R.string.white))) {
             duration = 9900000;
         }
+    }
+
+    private void TimeSetup(long millisUntilFinished) {
+        final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
+        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
+        final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
+        final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
+        final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
+
+        long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+                - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished));
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+                - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished));
+
+        String timeRemaining;
+        if (hours > 0) {
+            if (hours == 1) {
+                timeRemaining = hours + " " + hourString;
+            } else  {
+                timeRemaining = hours + " " + hoursString;
+            }
+
+            if (minutes == 0) {
+
+            } else if (minutes == 1) {
+                timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minuteString;
+            } else {
+                timeRemaining = timeRemaining + " " + getResources().getString(R.string.and) + " " + minutes + " " + minutesString;
+            }
+
+        } else {
+            if (minutes == 0) {
+                timeRemaining = minutes + " " + minuteString;
+            } else if (minutes == 1) {
+                timeRemaining = seconds + " " + secondsString;
+            } else {
+                timeRemaining = minutes + " " + minutesString;
+            }
+        }
+        timeRemaining = getResources().getString(R.string.duration2) + " " +timeRemaining;
+        durationTV.setText(timeRemaining);
     }
 }
