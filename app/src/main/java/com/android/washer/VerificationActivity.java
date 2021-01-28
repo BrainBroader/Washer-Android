@@ -3,6 +3,7 @@ package com.android.washer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,6 +40,12 @@ public class VerificationActivity extends BaseActivity {
         temperature = bundle.getString("Temperature");
 
         InitUI();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 
     public void InitUI() {
