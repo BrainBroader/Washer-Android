@@ -78,8 +78,7 @@
                             android:id="@+id/clothes"
                             android:layout_width="24sp"
                             android:layout_height="24sp"
-                            android:src="@drawable/clothes_short_sleeve"
-                            android:tint="@color/textColor"/>
+                            android:src="@drawable/clothes_short_sleeve"/>
 
                         <TextView
                             android:id="@+id/program_name"
@@ -171,9 +170,9 @@
                         android:id="@+id/duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingStart="15sp"
+                        android:layout_centerHorizontal="true"
                         android:text="@string/duration"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textSize="18sp"
                         android:textColor="@color/textColor"
                         android:layout_toRightOf="@+id/stopwatch"/>
@@ -186,7 +185,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="center_horizontal">
 
                     <CheckBox
                         android:id="@+id/checkbox"
@@ -198,9 +198,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/notify"
-                        android:paddingStart="15sp"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textSize="18sp"
+                        android:layout_centerHorizontal="true"
                         android:textColor="@color/textColor"
                         android:layout_toRightOf="@+id/checkbox"/>
 

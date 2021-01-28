@@ -14,12 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Washer">
         <activity android:name=".ChooseTemperatureActivity"
-            android:parentActivityName=".ChooseSpeedActivity" />
+            android:parentActivityName=".ChooseProgramActivity" />
         <activity android:name=".ChooseSpeedActivity"
-            android:parentActivityName=".ChooseProgramActivity"/>
+            android:parentActivityName=".ChooseTemperatureActivity"/>
         <activity android:name=".ChooseProgramActivity"
             android:parentActivityName=".ChooseWasherActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
