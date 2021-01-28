@@ -1,15 +1,18 @@
 package com.android.washer;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,6 +44,7 @@ public class EditWasherActivity extends BaseActivity {
     private TextView headerTextView;
     private RecyclerView recyclerView;
     private LinearLayout emptyStateView;
+    private ImageView emptyStateImageView;
     private Button scanAgainButton;
     private List<WasherModel> washers;
     private EditWasherRecyclerAdapter adapter;
@@ -56,6 +60,7 @@ public class EditWasherActivity extends BaseActivity {
         this.getSupportActionBar().setTitle("Τα πλυντήρια μου");
         recyclerView = findViewById(R.id.editWashersRV);
         emptyStateView = findViewById(R.id.editWasherEmptyStateView);
+        emptyStateImageView = findViewById(R.id.editWasherEmtpyStateImageView);
         headerTextView = findViewById(R.id.editWasherTV);
         scanAgainButton = findViewById(R.id.editWasherScanAgainBtn);
         setupData();
@@ -63,6 +68,14 @@ public class EditWasherActivity extends BaseActivity {
     }
 
     private void setupData() {
+        if (!isNetworkConnected()) {
+            showEmptyState();
+            emptyStateImageView.setImageResource(R.drawable.no_network_connection);
+            return;
+        }
+        hideEmptyState();
+        resetEmptyState();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.CONFIG)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -97,6 +110,10 @@ public class EditWasherActivity extends BaseActivity {
         });
     }
 
+    private void resetEmptyState() {
+        emptyStateImageView.setImageResource(R.drawable.no_result_empty_state_icon);
+    }
+
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.editWashersRV);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -123,6 +140,20 @@ public class EditWasherActivity extends BaseActivity {
             headerTextView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void showEmptyState() {
+        emptyStateView.setVisibility(View.VISIBLE);
+        scanAgainButton.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        handleScanAgain();
+    }
+
+    private void hideEmptyState() {
+        emptyStateView.setVisibility(View.INVISIBLE);
+        scanAgainButton.setVisibility(View.INVISIBLE);
+        headerTextView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
     private void handleAdapterListener() {

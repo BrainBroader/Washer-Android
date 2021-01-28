@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
     private TextView headerTextView;
     private RecyclerView recyclerView;
     private LinearLayout emptyStateView;
+    private ImageView emptyStateImageView;
     private Button scanAgainButton;
     private List<WasherModel> washers;
     private ProgressDialog progressDialog;
@@ -43,12 +45,21 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
         this.getSupportActionBar().setTitle("Έναρξη πλυσίματος");
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
+        emptyStateImageView = findViewById(R.id.emtpyStateImageView);
         headerTextView = findViewById(R.id.chooseWasherTV);
         scanAgainButton = findViewById(R.id.scanAgainBtn);
         setupData();
     }
 
     private void setupData() {
+        if (!isNetworkConnected()) {
+            showEmptyState();
+            emptyStateImageView.setImageResource(R.drawable.no_network_connection);
+            return;
+        }
+        hideEmptyState();
+        resetEmptyState();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.CONFIG)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -83,6 +94,10 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
         });
     }
 
+    private void resetEmptyState() {
+        emptyStateImageView.setImageResource(R.drawable.no_result_empty_state_icon);
+    }
+
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.washersRV);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -108,6 +123,20 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
             headerTextView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void showEmptyState() {
+        emptyStateView.setVisibility(View.VISIBLE);
+        scanAgainButton.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        handleScanAgain();
+    }
+
+    private void hideEmptyState() {
+        emptyStateView.setVisibility(View.INVISIBLE);
+        scanAgainButton.setVisibility(View.INVISIBLE);
+        headerTextView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
     private void handleScanAgain() {
