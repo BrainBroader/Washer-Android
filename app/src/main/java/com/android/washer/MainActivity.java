@@ -14,7 +14,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends BaseActivity {
 
-    private Button myWashersButton, optionsButton, startButton, minimizedActivityButton;
+    private Button myWashersButton, optionsButton, startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,26 +24,12 @@ public class MainActivity extends BaseActivity {
 
         ConnectViews();
         setupListeners();
-        EventBus.getDefault().register(this);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(String text) {
-        if (text.equals("MINIMIZE_FUNCTION")) {
-            initMinimize();
-        }
-    };
-
-    private void initMinimize() {
-        Log.d("MINIMIZE", "MPHKA");
-        minimizedActivityButton.setVisibility(View.VISIBLE);
     }
 
     private void ConnectViews() {
         myWashersButton = findViewById(R.id.myWashersButton);
         optionsButton = findViewById(R.id.optionsButton);
         startButton = findViewById(R.id.startWashingButton);
-        minimizedActivityButton = findViewById(R.id.minimizedActivityButton);
     }
 
     private void setupListeners() {
@@ -65,13 +51,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ChooseWasherActivity.class));
-            }
-        });
-
-        minimizedActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
     }

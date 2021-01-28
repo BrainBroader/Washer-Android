@@ -61,11 +61,6 @@ public class WashActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        handleMinimize();
-    }
-
     private void setupProgressBar() {
         //avoid weird effect in start of animation
         new Handler().postDelayed(new Runnable() {
@@ -176,30 +171,5 @@ public class WashActivity extends BaseActivity {
                     .show();
             }
         });
-    }
-
-    private void handleMinimize() {
-        new MaterialAlertDialogBuilder(WashActivity.this)
-            .setTitle(R.string.minimize)
-            .setMessage(R.string.minimize_question)
-            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    minimizeFunction();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-
-                }
-            })
-            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {}
-            })
-            .show();
-    }
-
-    private void minimizeFunction() {
-        EventBus.getDefault().post("MINIMIZE_FUNCTION");
     }
 }
