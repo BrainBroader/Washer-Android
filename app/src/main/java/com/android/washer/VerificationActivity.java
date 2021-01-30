@@ -20,7 +20,7 @@ public class VerificationActivity extends BaseActivity {
     TextView programTV, speedTV, tempTV, durationTV, washerNameTV;
     Button startButton;
 
-    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    String[] descriptionData;
     String program;
     String speed;
     String temperature;
@@ -32,7 +32,12 @@ public class VerificationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
-        this.getSupportActionBar().setTitle("Επιβεβαίωση Ρυθμίσεων");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.verification_title));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
 
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);

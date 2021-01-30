@@ -18,14 +18,19 @@ public class ChooseProgramActivity extends BaseActivity {
     private TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
     private Button continue_button;
 
-    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    String[] descriptionData;
     String program;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_program);
-        this.getSupportActionBar().setTitle("Επιλογή προγράμματος");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.program));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
 
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
@@ -148,7 +153,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.fast_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -157,7 +162,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.eco_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -166,7 +171,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.cotton_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -175,7 +180,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.synthetic_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -184,7 +189,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.vul_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -193,7 +198,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.mallina_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -202,7 +207,7 @@ public class ChooseProgramActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.white_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });

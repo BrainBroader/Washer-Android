@@ -42,7 +42,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_washer_activity);
-        this.getSupportActionBar().setTitle("Έναρξη πλυσίματος");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.start_washing_string));
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
         emptyStateImageView = findViewById(R.id.emtpyStateImageView);

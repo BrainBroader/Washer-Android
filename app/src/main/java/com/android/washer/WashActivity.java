@@ -35,7 +35,7 @@ public class WashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wash_activity);
-
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.wash));
         Bundle bundle = getIntent().getExtras();
         duration = bundle.getInt("Duration");
 

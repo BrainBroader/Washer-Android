@@ -12,7 +12,7 @@
     <string name="save">Save</string>
     <string name="add_or_delete_friendly_name">Delete the friendly name of your washing machine or enter your own</string>
     <string name="program_name">Cotton program</string>
-    <string name="spin">Hinges</string>
+    <string name="spin">RPM</string>
     <string name="ver_title">Confirm your program settings</string>
     <string name="Temperature">Temperature</string>
     <string name="duration">Το προγραμμα σας θα διαρκεσει 2 ωρες και 30 λεπτα</string>
@@ -71,4 +71,7 @@
     <string name="ver_speed">RPM:</string>
     <string name="ver_temp">Temperature:</string>
     <string name="ver_program">Program:</string>
+    <string name="details_info">Details</string>
+    <string name="verification_title">Verification</string>
+    <string name="wash">Wash</string>
 </resources>

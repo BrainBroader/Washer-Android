@@ -71,4 +71,7 @@
     <string name="app_language">Γλώσσα εφαρμογής</string>
     <string name="greek">Ελληνικά</string>
     <string name="english">Αγγλικά</string>
+    <string name="details_info">Πληροφορίες</string>
+    <string name="verification_title">Επιβεβαίωση</string>
+    <string name="wash">Πλύσιμο</string>
 </resources>

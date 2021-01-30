@@ -18,6 +18,7 @@ public class AppSettingsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_settings);
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.app_options_string));
         radioGroup = findViewById(R.id.radioGroup);
         saveButton = findViewById(R.id.saveButton);
         setupView();

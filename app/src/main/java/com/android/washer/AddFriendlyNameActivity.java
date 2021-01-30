@@ -37,7 +37,7 @@ public class AddFriendlyNameActivity extends BaseActivity {
         Gson gson = new Gson();
         washer = gson.fromJson(getIntent().getStringExtra("washerJson"), WasherModel.class);
 
-        this.getSupportActionBar().setTitle("Φιλική ονομασία");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.friendly_name));
 
         friendlyNameEditText = findViewById(R.id.friendlyNameEditText);
         deleteButton = findViewById(R.id.deleteButton);
