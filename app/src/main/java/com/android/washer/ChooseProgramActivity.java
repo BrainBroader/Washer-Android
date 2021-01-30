@@ -44,17 +44,15 @@ public class ChooseProgramActivity extends BaseActivity {
     private void SetupListeners() {
         SetupInfoButtons();
         SetupCards();
-        GoToChooseSpeedActivity();
+        GoToChooseTemperatureActivity();
     }
 
-    private void GoToChooseSpeedActivity() {
-
+    private void GoToChooseTemperatureActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChooseProgramActivity.this, ChooseTemperatureActivity.class);
-                intent.putExtra("Program", program);
-                ChooseProgramActivity.this.startActivity(intent);
+                WashSingleton.getInstance().Program = program;
+                startActivity(new Intent(ChooseProgramActivity.this, ChooseTemperatureActivity.class));
             }
         });
     }
