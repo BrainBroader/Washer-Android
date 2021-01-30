@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -129,6 +130,12 @@ public class AddFriendlyNameActivity extends BaseActivity {
             saveButton.setEnabled(true);
             saveButton.setAlpha((float) 1.0);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 
     private void updateRecyclerView() {

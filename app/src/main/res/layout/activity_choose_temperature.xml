@@ -311,10 +311,13 @@
 
         <Button
             android:id="@+id/continue_button"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/purple_700"
+            android:textColor="@color/white"
             android:text="@string/Continue"
-            android:layout_centerInParent="true"/>
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
 
     </RelativeLayout>
 
