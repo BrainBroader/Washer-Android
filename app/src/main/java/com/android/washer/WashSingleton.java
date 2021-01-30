@@ -4,10 +4,14 @@ import androidx.annotation.Nullable;
 
 public class WashSingleton {
 
-    static WashSingleton sharedInstance = new WashSingleton();
+    private static volatile WashSingleton sharedInstance = new WashSingleton();
 
-    WashSingleton() {
+    private WashSingleton() {
         // do nothing
+    }
+
+    public static WashSingleton getInstance() {
+        return sharedInstance;
     }
 
     void reset() {

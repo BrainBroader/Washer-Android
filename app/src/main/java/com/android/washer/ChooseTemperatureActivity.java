@@ -53,7 +53,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WashSingleton.sharedInstance.Temperature = temperature;
+                WashSingleton.getInstance().Temperature = temperature;
                 startActivity(new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class));
             }
         });

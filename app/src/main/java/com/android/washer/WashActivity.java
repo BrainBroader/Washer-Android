@@ -71,7 +71,7 @@ public class WashActivity extends BaseActivity {
 
     private void handleProgressBar() {
         int[] progress = {0};
-        final int maxTime = WashSingleton.sharedInstance.Duration;
+        final int maxTime = WashSingleton.getInstance().Duration;
         final String hoursString = getResources().getString(R.string.hours);
         final String hourString = getResources().getString(R.string.hour);
         final String minutesString = getResources().getString(R.string.minutes);

@@ -51,7 +51,7 @@ public class ChooseSpeedActivity extends BaseActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WashSingleton.sharedInstance.Rpm = speed;
+                WashSingleton.getInstance().Rpm = speed;
                 ChooseSpeedActivity.this.startActivity(new Intent(ChooseSpeedActivity.this, VerificationActivity.class));
             }
         });

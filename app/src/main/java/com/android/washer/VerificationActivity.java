@@ -59,7 +59,7 @@ public class VerificationActivity extends BaseActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WashSingleton.sharedInstance.Duration = duration;
+                WashSingleton.getInstance().Duration = duration;
                 startActivity(new Intent(VerificationActivity.this, WashActivity.class));
             }
         });
@@ -73,7 +73,7 @@ public class VerificationActivity extends BaseActivity {
         durationTV = findViewById(R.id.duration);
         washerNameTV = findViewById(R.id.washerName);
 
-        WasherModel washerModel = WashSingleton.sharedInstance.washerModel;
+        WasherModel washerModel = WashSingleton.getInstance().washerModel;
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String friendlyName = sharedPreferences.getString(washerModel.getId(), "");
 
@@ -83,9 +83,9 @@ public class VerificationActivity extends BaseActivity {
             washerNameTV.setText(washerModel.getId() + " - " + washerModel.getBrand() + " " + washerModel.getModel());
         }
 
-        String program = getResources().getString(R.string.ver_program)+ " " + WashSingleton.sharedInstance.Program;
-        String speed = getResources().getString(R.string.ver_speed)+ " " + WashSingleton.sharedInstance.Rpm;
-        String temperature = getResources().getString(R.string.ver_temp)+ " " + WashSingleton.sharedInstance.Temperature;
+        String program = getResources().getString(R.string.ver_program)+ " " + WashSingleton.getInstance().Program;
+        String speed = getResources().getString(R.string.ver_speed)+ " " + WashSingleton.getInstance().Rpm;
+        String temperature = getResources().getString(R.string.ver_temp)+ " " + WashSingleton.getInstance().Temperature;
 
         programTV.setText(program);
         speedTV.setText(speed);
@@ -93,19 +93,19 @@ public class VerificationActivity extends BaseActivity {
     }
 
     private void SetupDuration() {
-        if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.fast))) {
+        if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.fast))) {
             duration = 720000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.eco))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.eco))) {
             duration = 8600000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.cotton))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.cotton))) {
             duration = 1500000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.synthetic))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.synthetic))) {
             duration = 3700000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.vul))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.vul))) {
             duration = 5500000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.mallina))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.mallina))) {
             duration = 7200000;
-        } else if (WashSingleton.sharedInstance.Program.equals(getResources().getString(R.string.white))) {
+        } else if (WashSingleton.getInstance().Program.equals(getResources().getString(R.string.white))) {
             duration = 9900000;
         }
     }

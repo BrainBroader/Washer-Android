@@ -51,7 +51,7 @@ public class ChooseProgramActivity extends BaseActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WashSingleton.sharedInstance.Program = program;
+                WashSingleton.getInstance().Program = program;
                 startActivity(new Intent(ChooseProgramActivity.this, ChooseTemperatureActivity.class));
             }
         });
