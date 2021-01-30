@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.05"
-        style="@style/topic_textView"/>
+        style="@style/topic_textView"
+        android:textColor="@color/black"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -68,11 +69,33 @@
                     android:layout_marginBottom="50dp"
                     android:layout_gravity="center_horizontal">
 
-
-
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/washerIcon"
+                            android:layout_width="24sp"
+                            android:layout_height="28sp"
+                            android:src="@drawable/washer_icon_black"/>
+
+                        <TextView
+                            android:id="@+id/washerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Πρόγραμμα: Βαμβακερά"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/washerIcon"
+                            android:layout_marginLeft="10dp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
 
                         <ImageView
                             android:id="@+id/clothes"
@@ -87,9 +110,9 @@
                             android:text="Πρόγραμμα: Βαμβακερά"
                             android:textAlignment="center"
                             android:textSize="18sp"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:layout_toRightOf="@+id/clothes"
-                            android:layout_marginLeft="10dp"/>
+                            android:layout_marginLeft="10dp" />
 
                     </RelativeLayout>
 
@@ -112,7 +135,7 @@
                             android:text="Στροφές: 1200"
                             android:textAlignment="center"
                             android:textSize="18sp"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:layout_toRightOf="@+id/turns"
                             android:layout_marginLeft="10dp"/>
 
@@ -136,7 +159,7 @@
                             android:layout_height="wrap_content"
                             android:text="Θερμοκρασία: 40"
                             android:textSize="18sp"
-                            android:textColor="@color/textColor"
+                            android:textColor="@color/black"
                             android:layout_toRightOf="@+id/vector"
                             android:layout_marginLeft="10dp"/>
 
@@ -174,7 +197,7 @@
                         android:text="@string/duration"
                         android:textAlignment="center"
                         android:textSize="18sp"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:layout_toRightOf="@+id/stopwatch"/>
 
                 </RelativeLayout>
@@ -191,7 +214,8 @@
                     <CheckBox
                         android:id="@+id/checkbox"
                         android:layout_width="24sp"
-                        android:layout_height="24sp"/>
+                        android:layout_height="24sp"
+                        android:buttonTint="@color/black"/>
 
                     <TextView
                         android:id="@+id/notify"
@@ -201,7 +225,7 @@
                         android:textAlignment="center"
                         android:textSize="18sp"
                         android:layout_centerHorizontal="true"
-                        android:textColor="@color/textColor"
+                        android:textColor="@color/black"
                         android:layout_toRightOf="@+id/checkbox"/>
 
                 </RelativeLayout>
@@ -221,7 +245,7 @@
             android:id = "@+id/start_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/purple_700"
+            android:backgroundTint="@color/green"
             android:textColor="@color/white"
             android:text="@string/start"
             android:layout_marginRight="16dp"

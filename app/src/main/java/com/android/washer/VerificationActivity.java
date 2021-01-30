@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VerificationActivity extends BaseActivity {
 
-    TextView programTV, speedTV, tempTV, durationTV;
+    TextView programTV, speedTV, tempTV, durationTV, washerNameTV;
     Button startButton;
 
     String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
@@ -65,6 +65,7 @@ public class VerificationActivity extends BaseActivity {
         tempTV = findViewById(R.id.temperature);
         startButton = findViewById(R.id.start_button);
         durationTV = findViewById(R.id.duration);
+        washerNameTV = findViewById(R.id.washerName);
 
         program = getResources().getString(R.string.ver_program)+ " " + program;
         speed = getResources().getString(R.string.ver_speed)+ " " + speed;
