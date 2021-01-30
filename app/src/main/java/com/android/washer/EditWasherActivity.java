@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -241,4 +242,10 @@ public class EditWasherActivity extends BaseActivity {
             adapter.notifyDataSetChanged();
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
+    }
 }
