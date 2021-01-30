@@ -49,6 +49,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
         headerTextView = findViewById(R.id.chooseWasherTV);
         scanAgainButton = findViewById(R.id.scanAgainBtn);
         setupData();
+        WashSingleton.sharedInstance.reset();
     }
 
     private void setupData() {
@@ -150,6 +151,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
 
     @Override
     public void didSelectWasher(WasherModel washer) {
+        WashSingleton.sharedInstance.washerModel = washer;
         startActivity(new Intent(ChooseWasherActivity.this, ChooseProgramActivity.class));
     }
 }
