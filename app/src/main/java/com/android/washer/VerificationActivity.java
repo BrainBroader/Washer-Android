@@ -115,11 +115,11 @@ public class VerificationActivity extends BaseActivity {
     }
 
     private void TimeSetup(long millisUntilFinished) {
-        final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
-        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
-        final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
-        final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
-        final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
+        final String hoursString = getResources().getString(R.string.hours);
+        final String hourString = getResources().getString(R.string.hour);
+        final String minutesString = getResources().getString(R.string.minutes);
+        final String minuteString = getResources().getString(R.string.minute);
+        final String secondsString = getResources().getString(R.string.seconds);
 
         long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
         long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)

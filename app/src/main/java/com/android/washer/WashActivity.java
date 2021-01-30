@@ -76,11 +76,11 @@ public class WashActivity extends BaseActivity {
     private void handleProgressBar() {
         int[] progress = {0};
         final int maxTime = duration;
-        final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
-        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
-        final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
-        final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
-        final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
+        final String hoursString = getResources().getString(R.string.hours);
+        final String hourString = getResources().getString(R.string.hour);
+        final String minutesString = getResources().getString(R.string.minutes);
+        final String minuteString = getResources().getString(R.string.minute);
+        final String secondsString = getResources().getString(R.string.seconds);
 
         headerDurationTextView.setVisibility(View.VISIBLE);
 
