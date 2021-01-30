@@ -10,7 +10,7 @@
 
     <TextView
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:text="@string/choose_program"
         android:textStyle="bold"
         android:layout_width="match_parent"
