@@ -22,13 +22,15 @@
             android:id="@+id/radio_button_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/greek" />
+            android:text="@string/greek"
+            android:buttonTint="@color/purple_700"/>
 
         <RadioButton
             android:id="@+id/radio_button_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/english" />
+            android:text="@string/english"
+            android:buttonTint="@color/purple_700"/>
     </RadioGroup>
 
     <TextView
@@ -41,7 +43,10 @@
         android:text="@string/app_language"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/saveButton"
@@ -51,6 +56,8 @@
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/purple_700"
+        android:textColor="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

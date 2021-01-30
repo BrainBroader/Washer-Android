@@ -42,7 +42,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_washer_activity);
-        this.getSupportActionBar().setTitle("Έναρξη πλυσίματος");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.start_washing_string));
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
         emptyStateImageView = findViewById(R.id.emtpyStateImageView);
@@ -104,7 +104,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this);
+        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this, this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));

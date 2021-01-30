@@ -22,14 +22,19 @@ public class ChooseTemperatureActivity extends BaseActivity {
     private TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
     private Button continue_button;
 
-    private String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    private String[] descriptionData;
     private String program, temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_temperature);
-        this.getSupportActionBar().setTitle("Επιλογή θερμοκρασίας");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.temperature));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
 
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
@@ -116,7 +121,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.twenty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -125,7 +130,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.fourty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -134,7 +139,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.sixty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -143,7 +148,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.ninety);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });

@@ -1,6 +1,7 @@
 package com.android.washer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,17 +20,24 @@ public class VerificationActivity extends BaseActivity {
     TextView programTV, speedTV, tempTV, durationTV, washerNameTV;
     Button startButton;
 
-    String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    String[] descriptionData;
     String program;
     String speed;
     String temperature;
     int duration;
 
+    private final String SHARED_PREFS = "sharedPrefs";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
-        this.getSupportActionBar().setTitle("Επιβεβαίωση Ρυθμίσεων");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.verification_title));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
 
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
@@ -74,6 +82,16 @@ public class VerificationActivity extends BaseActivity {
         durationTV = findViewById(R.id.duration);
         washerNameTV = findViewById(R.id.washerName);
 
+        WasherModel washerModel = WashSingleton.sharedInstance.washerModel;
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String friendlyName = sharedPreferences.getString(washerModel.getId(), "");
+
+        if (friendlyName != "" ) {
+            washerNameTV.setText(friendlyName + " - " + washerModel.getBrand() + " " + washerModel.getModel());
+        } else {
+            washerNameTV.setText(washerModel.getId() + " - " + washerModel.getBrand() + " " + washerModel.getModel());
+        }
+
         program = getResources().getString(R.string.ver_program)+ " " + program;
         speed = getResources().getString(R.string.ver_speed)+ " " + speed;
         temperature = getResources().getString(R.string.ver_temp)+ " " +temperature;
@@ -102,11 +120,11 @@ public class VerificationActivity extends BaseActivity {
     }
 
     private void TimeSetup(long millisUntilFinished) {
-        final String hoursString = getApplicationContext().getResources().getString(R.string.hours);
-        final String hourString = getApplicationContext().getResources().getString(R.string.hour);
-        final String minutesString = getApplicationContext().getResources().getString(R.string.minutes);
-        final String minuteString = getApplicationContext().getResources().getString(R.string.minute);
-        final String secondsString = getApplicationContext().getResources().getString(R.string.seconds);
+        final String hoursString = getResources().getString(R.string.hours);
+        final String hourString = getResources().getString(R.string.hour);
+        final String minutesString = getResources().getString(R.string.minutes);
+        final String minuteString = getResources().getString(R.string.minute);
+        final String secondsString = getResources().getString(R.string.seconds);
 
         long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
         long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)

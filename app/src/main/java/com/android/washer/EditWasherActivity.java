@@ -58,7 +58,7 @@ public class EditWasherActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_washer_activity);
-        this.getSupportActionBar().setTitle("Τα πλυντήρια μου");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.my_washers_string));
         recyclerView = findViewById(R.id.editWashersRV);
         emptyStateView = findViewById(R.id.editWasherEmptyStateView);
         emptyStateImageView = findViewById(R.id.editWasherEmtpyStateImageView);

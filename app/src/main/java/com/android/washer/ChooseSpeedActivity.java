@@ -21,14 +21,19 @@ public class ChooseSpeedActivity extends BaseActivity {
     private TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
     private Button continue_button;
 
-    private String[] descriptionData = {"Πρόγραμμα", "Θερμοκρασία", "Στροφές", "Επιβεβαίωση"};
+    private String[] descriptionData;
     private String program, temperature, speed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_speed);
-        this.getSupportActionBar().setTitle("Επιλογή στροφών");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.spin));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
 
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
