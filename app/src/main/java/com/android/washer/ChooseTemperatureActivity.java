@@ -23,7 +23,7 @@ public class ChooseTemperatureActivity extends BaseActivity {
     private Button continue_button;
 
     private String[] descriptionData;
-    private String program, temperature;
+    private String temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +39,6 @@ public class ChooseTemperatureActivity extends BaseActivity {
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
 
-        Bundle bundle = getIntent().getExtras();
-        program = bundle.getString("Program");
-
         ConnectViews();
         SetupListeners();
     }
@@ -49,20 +46,15 @@ public class ChooseTemperatureActivity extends BaseActivity {
     private void SetupListeners() {
         SetupCards();
         SetupInfoButtons();
-        GoToConfrimActivity();
+        GoToRpmActivity();
     }
 
-    private void GoToConfrimActivity() {
+    private void GoToRpmActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("PROGRAM: ", program);
-                Log.d("TEMPERATURE: ", temperature);
-
-                Intent intent  = new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class);
-                intent.putExtra("Program", program);
-                intent.putExtra("Temperature", temperature);
-                startActivity(intent);
+                WashSingleton.sharedInstance.Temperature = temperature;
+                startActivity(new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class));
             }
         });
     }

@@ -16,4 +16,9 @@ public class WashSingleton {
 
     @Nullable
     WasherModel washerModel;
+
+    String Program;
+    String Temperature;
+    String Rpm;
+    int Duration;
 }

@@ -22,7 +22,7 @@ public class ChooseSpeedActivity extends BaseActivity {
     private Button continue_button;
 
     private String[] descriptionData;
-    private String program, temperature, speed;
+    private String speed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,29 +38,21 @@ public class ChooseSpeedActivity extends BaseActivity {
         StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
         stateProgressBar.setStateDescriptionData(descriptionData);
 
-        Bundle bundle = getIntent().getExtras();
-        program = bundle.getString("Program");
-        temperature = bundle.getString("Temperature");
-
         ConnectViews();
         SetupListeners();
-
     }
 
     private void SetupListeners() {
         SetupCards();
-        GoToChooseTemperatureActivity();
+        GoToVerificationActivity();
     }
 
-    private void GoToChooseTemperatureActivity() {
+    private void GoToVerificationActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(ChooseSpeedActivity.this, VerificationActivity.class);
-                intent.putExtra("Program", program);
-                intent.putExtra("Speed", speed);
-                intent.putExtra("Temperature", temperature);
-                ChooseSpeedActivity.this.startActivity(intent);
+                WashSingleton.sharedInstance.Rpm = speed;
+                ChooseSpeedActivity.this.startActivity(new Intent(ChooseSpeedActivity.this, VerificationActivity.class));
             }
         });
     }

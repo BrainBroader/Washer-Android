@@ -29,15 +29,11 @@ public class WashActivity extends BaseActivity {
     private CountDownTimer countDownTimer;
     private TextView headerDurationTextView, durationTextView, finishedTextView;
 
-    int duration;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wash_activity);
         this.getSupportActionBar().setTitle(getResources().getString(R.string.wash));
-        Bundle bundle = getIntent().getExtras();
-        duration = bundle.getInt("Duration");
 
         waveLoadingView = findViewById(R.id.waveLoadingView);
         cancelButton = findViewById(R.id.cancelWashButton);
@@ -75,7 +71,7 @@ public class WashActivity extends BaseActivity {
 
     private void handleProgressBar() {
         int[] progress = {0};
-        final int maxTime = duration;
+        final int maxTime = WashSingleton.sharedInstance.Duration;
         final String hoursString = getResources().getString(R.string.hours);
         final String hourString = getResources().getString(R.string.hour);
         final String minutesString = getResources().getString(R.string.minutes);
