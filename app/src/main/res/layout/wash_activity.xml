@@ -75,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/waveLoadingView"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/durationTextView"
@@ -84,7 +85,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerTitleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/headerTitleTextView"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/finishedTextView"
@@ -95,6 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statusIcon"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textColor="@color/black"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
