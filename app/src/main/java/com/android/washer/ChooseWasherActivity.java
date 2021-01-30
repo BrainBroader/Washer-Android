@@ -104,7 +104,7 @@ public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRe
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this);
+        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this, this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
