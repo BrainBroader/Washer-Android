@@ -6,30 +6,38 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseTemperatureActivity extends AppCompatActivity {
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
-    ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
-    CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
-    TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
-    Button continue_button;
+public class ChooseTemperatureActivity extends BaseActivity {
 
-    String program, speed, temperature;
+    private ImageView temp20_infoButton, temp40_infoButton, temp60_infoButton, temp90_infoButton; //Info Buttons in Cards
+    private CardView temp20_card, temp40_card, temp60_card, temp90_card; //Cards
+    private TextView temp20_TV, temp40_TV, temp60_TV, temp90_TV; //Text Inside Cards
+    private Button continue_button;
+
+    private String[] descriptionData;
+    private String temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_temperature);
-        this.getSupportActionBar().setTitle("Επιλογή θερμοκρασίας");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.temperature));
 
-        Bundle bundle = getIntent().getExtras();
-        program = bundle.getString("Program");
-        speed = bundle.getString("Speed");
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         ConnectViews();
         SetupListeners();
@@ -38,28 +46,15 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
     private void SetupListeners() {
         SetupCards();
         SetupInfoButtons();
-        GoToConfrimActivity();
+        GoToRpmActivity();
     }
 
-    private void GoToConfrimActivity() {
+    private void GoToRpmActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (temperature == null) {
-                    Toast.makeText(ChooseTemperatureActivity.this, "Select an option!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Log.d("PROGRAM: ", program);
-                Log.d("SPEED: ", speed);
-                Log.d("TEMPERATURE: ", temperature);
-
-                Intent intent  = new Intent(ChooseTemperatureActivity.this, VerificationActivity.class);
-                intent.putExtra("Program", program);
-                intent.putExtra("Speed", speed);
-                intent.putExtra("Temperature", temperature);
-                startActivity(intent);
+                WashSingleton.getInstance().Temperature = temperature;
+                startActivity(new Intent(ChooseTemperatureActivity.this, ChooseSpeedActivity.class));
             }
         });
     }
@@ -77,6 +72,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp20_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.twenty);
+                EnableButton();
             }
         });
 
@@ -86,6 +82,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp40_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.fourty);
+                EnableButton();
             }
         });
 
@@ -95,6 +92,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp60_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.sixty);
+                EnableButton();
             }
         });
 
@@ -104,9 +102,9 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
                 ClearPickedCards();
                 temp90_card.setVisibility(View.VISIBLE);
                 temperature = getResources().getString(R.string.ninety);
+                EnableButton();
             }
         });
-
     }
 
     private void SetupInfoButtons() {
@@ -115,7 +113,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.twenty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -124,7 +122,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.fourty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -133,7 +131,7 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.sixty);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -142,17 +140,8 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.ninety);
-                String description = "Details about this";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
-            }
-        });
-
-        continue_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent  = new Intent(ChooseTemperature.this, .class);
-                //ChooseTemperature.this.startActivity(intent);
-
             }
         });
     }
@@ -181,5 +170,24 @@ public class ChooseTemperatureActivity extends AppCompatActivity {
         temp90_TV = findViewById(R.id.temp90_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 }

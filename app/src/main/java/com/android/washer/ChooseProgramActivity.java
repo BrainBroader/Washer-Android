@@ -1,29 +1,41 @@
 package com.android.washer;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
-public class ChooseProgramActivity extends AppCompatActivity {
+import androidx.cardview.widget.CardView;
 
-    ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
-    CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
-    TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
-    Button continue_button;
+public class ChooseProgramActivity extends BaseActivity {
 
+    private ImageView fast_infoButton, eco_infoButton, cotton_infoButton, synthetic_infoButton, vul_infoButton, mallina_infoButton, white_infoButton; //Info Buttons in Cards
+    private CardView fastProgram_card, ecoProgram_card, cottonProgram_card, syntheticProgram_card, vulProgram_card, mallinaProgram_card, whiteProgram_card; //Cards
+    private TextView fastProgram_TV, ecoProgram_TV, cottonProgram_TV, syntheticProgram_TV, vulProgram_TV, mallinaProgram_TV, whiteProgram_TV; //Text Inside Cards
+    private Button continue_button;
+
+    String[] descriptionData;
     String program;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_program);
-        this.getSupportActionBar().setTitle("Επιλογή προγράμματος");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.program));
+
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
+
+        //stateProgressBar.setStateDescriptionTypeface("fonts/Ubuntu-L.ttf");
 
         ConnectViews();
         SetupListeners();
@@ -32,26 +44,15 @@ public class ChooseProgramActivity extends AppCompatActivity {
     private void SetupListeners() {
         SetupInfoButtons();
         SetupCards();
-        GoToChooseSpeedActivity();
+        GoToChooseTemperatureActivity();
     }
 
-    private void GoToChooseSpeedActivity() {
-
+    private void GoToChooseTemperatureActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (program == null) {
-                    Toast.makeText(ChooseProgramActivity.this, "Select a washing program!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Intent intent = new Intent(ChooseProgramActivity.this, ChooseSpeedActivity.class);
-                intent.putExtra("Program", program);
-                ChooseProgramActivity.this.startActivity(intent);
-
-
+                WashSingleton.getInstance().Program = program;
+                startActivity(new Intent(ChooseProgramActivity.this, ChooseTemperatureActivity.class));
             }
         });
     }
@@ -68,7 +69,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 fastProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.fast_program);
+                program = getResources().getString(R.string.fast);
+                EnableButton();
             }
         });
 
@@ -77,7 +79,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 ecoProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.eco_program);
+                program = getResources().getString(R.string.eco);
+                EnableButton();
             }
         });
 
@@ -86,7 +89,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 cottonProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.cotton_program);
+                program = getResources().getString(R.string.cotton);
+                EnableButton();
             }
         });
 
@@ -95,7 +99,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 syntheticProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.synthetic_program);
+                program = getResources().getString(R.string.synthetic);
+                EnableButton();
             }
         });
 
@@ -104,7 +109,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 vulProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.vul_program);
+                program = getResources().getString(R.string.vul);
+                EnableButton();
             }
         });
 
@@ -113,7 +119,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 mallinaProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.mallina_program);
+                program = getResources().getString(R.string.mallina);
+                EnableButton();
             }
         });
 
@@ -122,7 +129,8 @@ public class ChooseProgramActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ClearPickedCards();
                 whiteProgram_card.setVisibility(View.VISIBLE);
-                program = getResources().getString(R.string.white_program);
+                program = getResources().getString(R.string.white);
+                EnableButton();
             }
         });
 
@@ -143,7 +151,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.fast_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -152,7 +160,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.eco_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -161,7 +169,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.cotton_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -170,7 +178,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.synthetic_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -179,7 +187,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.vul_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -188,7 +196,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.mallina_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -197,7 +205,7 @@ public class ChooseProgramActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String title = getResources().getString(R.string.white_program);
-                String description = "Details about this program";
+                String description = getResources().getString(R.string.details_info);
                 openDialog(title, description);
             }
         });
@@ -229,5 +237,24 @@ public class ChooseProgramActivity extends AppCompatActivity {
         whiteProgram_TV = findViewById(R.id.whiteProgram_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 }

@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,11 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 
-public class AddFriendlyNameActivity extends AppCompatActivity {
+public class AddFriendlyNameActivity extends BaseActivity {
 
     private EditText friendlyNameEditText;
     private Button deleteButton, saveButton;
@@ -33,7 +37,7 @@ public class AddFriendlyNameActivity extends AppCompatActivity {
         Gson gson = new Gson();
         washer = gson.fromJson(getIntent().getStringExtra("washerJson"), WasherModel.class);
 
-        this.getSupportActionBar().setTitle("Φιλική ονομασία");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.friendly_name));
 
         friendlyNameEditText = findViewById(R.id.friendlyNameEditText);
         deleteButton = findViewById(R.id.deleteButton);
@@ -67,6 +71,7 @@ public class AddFriendlyNameActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard(v);
                 SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(washer.getId(), "");
@@ -75,13 +80,14 @@ public class AddFriendlyNameActivity extends AppCompatActivity {
                 friendlyName = "";
                 setupButtons();
                 friendlyNameEditText.setText("");
-                Toast.makeText(getApplicationContext(), "Η φιλική ονομασία διαγράφτηκε.", Toast.LENGTH_SHORT).show();
+                Snackbar.make(v, "Η φιλική ονομασία διαγράφτηκε.", BaseTransientBottomBar.LENGTH_SHORT).show();
             }
         });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard(v);
                 SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String newFriendlyName = friendlyNameEditText.getText().toString();
@@ -90,9 +96,14 @@ public class AddFriendlyNameActivity extends AppCompatActivity {
                 updateRecyclerView();
                 friendlyName = newFriendlyName;
                 setupButtons();
-                Toast.makeText(getApplicationContext(), "Η φιλική ονομασία αποθηκεύτηκε!", Toast.LENGTH_SHORT).show();
+                Snackbar.make(v, "Η φιλική ονομασία αποθηκεύτηκε!", BaseTransientBottomBar.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     private void handleTextWatcher() {
@@ -119,6 +130,12 @@ public class AddFriendlyNameActivity extends AppCompatActivity {
             saveButton.setEnabled(true);
             saveButton.setAlpha((float) 1.0);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 
     private void updateRecyclerView() {

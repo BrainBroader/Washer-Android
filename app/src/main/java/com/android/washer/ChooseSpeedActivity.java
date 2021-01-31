@@ -5,56 +5,54 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ChooseSpeedActivity extends AppCompatActivity {
+import com.kofigyan.stateprogressbar.StateProgressBar;
 
-    ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
-    CardView turns400_card, turns800_card, turns1000_card, turns1200_card, turns1600_card; //Cards
-    TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
-    Button continue_button;
+public class ChooseSpeedActivity extends BaseActivity {
 
-    String program;
-    String speed;
+    private ImageView infoButton_400, infoButton_800, infoButton_1000, infoButton_1200, infoButton_1600; //Info Buttons in Cards
+    private CardView turns400_card, turns800_card, turns1000_card, turns1200_card, turns1600_card; //Cards
+    private TextView turns400_TV, turns800_TV, turns1000_TV, turns1200_TV, turns1600_TV; //Text Inside Cards
+    private Button continue_button;
+
+    private String[] descriptionData;
+    private String speed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_speed);
-        this.getSupportActionBar().setTitle("Επιλογή στροφών");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.spin));
 
-        Bundle bundle = getIntent().getExtras();
-        program = bundle.getString("Program");
+        descriptionData = new String[]{getResources().getString(R.string.program),
+                getResources().getString(R.string.temperature),
+                getResources().getString(R.string.spin),
+                getResources().getString(R.string.verification_title)};
+
+        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
+        stateProgressBar.setStateDescriptionData(descriptionData);
 
         ConnectViews();
         SetupListeners();
-
     }
 
     private void SetupListeners() {
         SetupCards();
-        GoToChooseTemperatureActivity();
+        GoToVerificationActivity();
     }
 
-    private void GoToChooseTemperatureActivity() {
+    private void GoToVerificationActivity() {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (speed == null) {
-                    Toast.makeText(ChooseSpeedActivity.this, "Select an option!",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                Intent intent  = new Intent(ChooseSpeedActivity.this, ChooseTemperatureActivity.class);
-                intent.putExtra("Program", program);
-                intent.putExtra("Speed", speed);
-                ChooseSpeedActivity.this.startActivity(intent);
+                WashSingleton.getInstance().Rpm = speed;
+                ChooseSpeedActivity.this.startActivity(new Intent(ChooseSpeedActivity.this, VerificationActivity.class));
             }
         });
     }
@@ -67,6 +65,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ClearPickedCards();
                 turns400_card.setVisibility(View.VISIBLE);
                 speed = getResources().getString(R.string.four_hundrend);
+                EnableButton();
             }
         });
 
@@ -76,6 +75,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ClearPickedCards();
                 turns800_card.setVisibility(View.VISIBLE);
                 speed = getResources().getString(R.string.eight_hundrend);
+                EnableButton();
             }
         });
 
@@ -85,6 +85,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ClearPickedCards();
                 turns1000_card.setVisibility(View.VISIBLE);
                 speed = getResources().getString(R.string.one_thousand);
+                EnableButton();
             }
         });
 
@@ -94,6 +95,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ClearPickedCards();
                 turns1200_card.setVisibility(View.VISIBLE);
                 speed = getResources().getString(R.string.one_thousand_two);
+                EnableButton();
             }
         });
 
@@ -103,6 +105,7 @@ public class ChooseSpeedActivity extends AppCompatActivity {
                 ClearPickedCards();
                 turns1600_card.setVisibility(View.VISIBLE);
                 speed = getResources().getString(R.string.one_thousand_six);
+                EnableButton();
             }
         });
     }
@@ -135,5 +138,24 @@ public class ChooseSpeedActivity extends AppCompatActivity {
         turns1600_TV = findViewById(R.id.turns1600_TV);
 
         continue_button = findViewById(R.id.continue_button);
+        DisableButton();
+    }
+
+    private void EnableButton() {
+        if (!continue_button.isEnabled()) {
+            continue_button.setEnabled(true);
+            continue_button.setAlpha((float) 1.0);
+        }
+    }
+
+    private void DisableButton() {
+        continue_button.setEnabled(false);
+        continue_button.setAlpha((float) 0.5);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
     }
 }

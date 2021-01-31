@@ -34,7 +34,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="4dp"
                 android:gravity="left"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/editWasherItemDescriptionTV"
@@ -43,7 +44,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="4dp"
                 android:gravity="left"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 

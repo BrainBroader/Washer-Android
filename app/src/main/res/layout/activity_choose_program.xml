@@ -10,7 +10,7 @@
 
     <TextView
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:text="@string/choose_program"
         android:textStyle="bold"
         android:layout_width="match_parent"
@@ -23,11 +23,21 @@
         android:layout_height="0dp"
         android:layout_weight="0.05">
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:background="@drawable/program_stage"
-            android:layout_centerInParent="true"/>
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/your_state_progress_bar_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateForegroundColor="@color/purple_700"
+            app:spb_stateNumberBackgroundColor="#808080"
+            app:spb_stateNumberForegroundColor="#eeeeee"
+            app:spb_currentStateDescriptionColor="@color/purple_700"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_checkStateCompleted="true"/>
 
     </RelativeLayout>
 
@@ -45,7 +55,7 @@
             android:columnCount="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="70dp">
 
             <!-- Row One -->
 
@@ -495,10 +505,13 @@
 
         <Button
             android:id="@+id/continue_button"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="@string/Continue"
-            android:layout_centerInParent="true"/>
+            android:backgroundTint="@color/purple_700"
+            android:textColor="@color/white"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
 
     </RelativeLayout>
 

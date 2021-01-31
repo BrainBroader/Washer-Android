@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,11 +28,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChooseWasherActivity extends AppCompatActivity implements ChooseWasherRecyclerAdapter.SelectedWasher {
+public class ChooseWasherActivity extends BaseActivity implements ChooseWasherRecyclerAdapter.SelectedWasher {
 
     private TextView headerTextView;
     private RecyclerView recyclerView;
     private LinearLayout emptyStateView;
+    private ImageView emptyStateImageView;
     private Button scanAgainButton;
     private List<WasherModel> washers;
     private ProgressDialog progressDialog;
@@ -41,15 +42,25 @@ public class ChooseWasherActivity extends AppCompatActivity implements ChooseWas
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_washer_activity);
-        this.getSupportActionBar().setTitle("Έναρξη πλυσίματος");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.start_washing_string));
         recyclerView = findViewById(R.id.washersRV);
         emptyStateView = findViewById(R.id.washerEmptyStateView);
+        emptyStateImageView = findViewById(R.id.emtpyStateImageView);
         headerTextView = findViewById(R.id.chooseWasherTV);
         scanAgainButton = findViewById(R.id.scanAgainBtn);
         setupData();
+        WashSingleton.getInstance().reset();
     }
 
     private void setupData() {
+        if (!isNetworkConnected()) {
+            showEmptyState();
+            emptyStateImageView.setImageResource(R.drawable.no_network_connection);
+            return;
+        }
+        hideEmptyState();
+        resetEmptyState();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.CONFIG)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -84,12 +95,16 @@ public class ChooseWasherActivity extends AppCompatActivity implements ChooseWas
         });
     }
 
+    private void resetEmptyState() {
+        emptyStateImageView.setImageResource(R.drawable.no_result_empty_state_icon);
+    }
+
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.washersRV);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this);
+        ChooseWasherRecyclerAdapter adapter = new ChooseWasherRecyclerAdapter(washers, this, this);
         recyclerView.setAdapter(adapter);
         DividerItemDecoration divider = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.separator_line));
@@ -111,6 +126,20 @@ public class ChooseWasherActivity extends AppCompatActivity implements ChooseWas
         }
     }
 
+    private void showEmptyState() {
+        emptyStateView.setVisibility(View.VISIBLE);
+        scanAgainButton.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        handleScanAgain();
+    }
+
+    private void hideEmptyState() {
+        emptyStateView.setVisibility(View.INVISIBLE);
+        scanAgainButton.setVisibility(View.INVISIBLE);
+        headerTextView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
+    }
+
     private void handleScanAgain() {
         scanAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +151,7 @@ public class ChooseWasherActivity extends AppCompatActivity implements ChooseWas
 
     @Override
     public void didSelectWasher(WasherModel washer) {
+        WashSingleton.getInstance().washerModel = washer;
         startActivity(new Intent(ChooseWasherActivity.this, ChooseProgramActivity.class));
     }
 }

@@ -1,157 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textSize="16sp"
         android:text="@string/ver_title"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/scrollbar"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="20sp"
-        android:src = "@drawable/bar"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        style="@style/topic_textView"
+        android:textColor="@color/black"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        android:layout_marginTop="5dp">
 
-    <ImageView
-        android:layout_width="24sp"
-        android:layout_height="24sp"
-        android:src="@drawable/clothes_short_sleeve"
-        app:layout_constraintRight_toLeftOf="@id/program_name"
-        app:layout_constraintBottom_toBottomOf="@id/program_name"
-
-        android:contentDescription="@string/program_name" />
-
-    <TextView
-        android:id="@+id/program_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150sp"
-        android:text="@string/program_name"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:paddingStart="15sp"
-        app:layout_constraintEnd_toEndOf="@id/scrollbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/scrollbar" />
-
-
-    <ImageView
-        android:layout_width="24sp"
-        android:layout_height="24sp"
-        android:src="@drawable/speed"
-        app:layout_constraintRight_toLeftOf="@id/spin"
-        app:layout_constraintBottom_toBottomOf="@id/spin"
-
-        />
-
-    <TextView
-            android:id="@+id/spin"
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/your_state_progress_bar_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:text="@string/spin"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:paddingStart="15sp"
-            app:layout_constraintStart_toStartOf="@+id/program_name"
-            app:layout_constraintTop_toBottomOf="@+id/program_name"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:spb_currentStateNumber="four"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateForegroundColor="@color/purple_700"
+            app:spb_stateNumberBackgroundColor="#808080"
+            app:spb_stateNumberForegroundColor="#eeeeee"
+            app:spb_currentStateDescriptionColor="@color/purple_700"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_checkStateCompleted="true"/>
 
-    <ImageView
-        android:id = "@+id/vector"
-        android:layout_width="24sp"
-        android:layout_height="24sp"
-        android:src="@drawable/vec"
-        app:layout_constraintRight_toLeftOf="@id/temperature"
-        app:layout_constraintBottom_toBottomOf="@id/temperature"
-        />
+    </RelativeLayout>
 
 
-        <TextView
-            android:id="@+id/temperature"
-            android:layout_width="0dp"
+    <ScrollView
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:text="@string/Temperature"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:paddingStart="15sp"
-            app:layout_constraintStart_toStartOf="@+id/spin"
-            app:layout_constraintTop_toBottomOf="@+id/spin"/>
+            android:orientation="vertical">
 
-    <ImageView
-        android:id = "@+id/stopwatch"
-        android:layout_width="24sp"
-        android:layout_height="24sp"
-        android:src="@drawable/stopwatch_start"
-        app:layout_constraintRight_toLeftOf="@id/duration"
-        app:layout_constraintTop_toTopOf="@id/duration"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-        />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_gravity="center_horizontal">
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-    <TextView
-    android:id="@+id/duration"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="100sp"
-    android:paddingStart="15sp"
-    android:paddingEnd="50sp"
-    android:text="@string/duration"
-    android:textAlignment="textStart"
-    android:textSize="18sp"
-    app:layout_constraintEnd_toEndOf="@id/linearLayout"
-    app:layout_constraintStart_toStartOf="@id/vector"
-    app:layout_constraintTop_toBottomOf="@id/temperature" />
+                        <ImageView
+                            android:id="@+id/washerIcon"
+                            android:layout_width="24sp"
+                            android:layout_height="28sp"
+                            android:src="@drawable/washer_icon_black"/>
 
-    <CheckBox
-        android:layout_width="24sp"
-        android:layout_height="24sp"
-        app:layout_constraintRight_toLeftOf="@id/notify"
-        app:layout_constraintTop_toTopOf="@id/notify"/>
+                        <TextView
+                            android:id="@+id/washerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Πρόγραμμα: Βαμβακερά"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/washerIcon"
+                            android:layout_marginLeft="10dp" />
 
+                    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/notify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
-        android:paddingLeft="15sp"
-        android:paddingEnd="50sp"
-        android:text="@string/notify"
-        android:textAlignment="textStart"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/linearLayout"
-        app:layout_constraintStart_toStartOf="@id/vector"
-        app:layout_constraintTop_toBottomOf="@id/duration" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
 
-    <Button
-        android:id = "@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start"
-        android:backgroundTint = "#53A83E"
-        app:layout_constraintTop_toBottomOf="@id/notify"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20sp"
-        android:layout_marginBottom="20sp"
-        />
+                        <ImageView
+                            android:id="@+id/clothes"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:src="@drawable/clothes_short_sleeve"/>
+
+                        <TextView
+                            android:id="@+id/program_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Πρόγραμμα: Βαμβακερά"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/clothes"
+                            android:layout_marginLeft="10dp" />
+
+                    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
+
+                        <ImageView
+                            android:id="@+id/turns"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:src="@drawable/speed"/>
+
+                        <TextView
+                            android:id="@+id/spin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Στροφές: 1200"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/turns"
+                            android:layout_marginLeft="10dp"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
+
+                        <ImageView
+                            android:id = "@+id/vector"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:src="@drawable/vector"
+                            />
+
+                        <TextView
+                            android:id="@+id/temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Θερμοκρασία: 40"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_toRightOf="@+id/vector"
+                            android:layout_marginLeft="10dp"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp">
+
+                    <ImageView
+                        android:id = "@+id/stopwatch"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        android:src="@drawable/stopwatch_start"/>
+
+                    <TextView
+                        android:id="@+id/duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/duration"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/stopwatch"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="24sp"
+                        android:layout_height="24sp"
+                        android:buttonTint="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/notify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notify"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/checkbox"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05">
+
+        <Button
+            android:id = "@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"
+            android:text="@string/start"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

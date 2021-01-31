@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/no_washers_found" />
+            android:text="@string/no_washers_found"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <TextView
@@ -44,7 +45,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textColor="@color/black"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/washersRV"

@@ -1,8 +1,11 @@
 package com.android.washer;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +19,12 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class InfoDialog extends AppCompatDialogFragment {
 
-    String title;
-    String description;
+    private String title;
+    private String description;
 
-    TextView popUpTitleTextView, popUpDescriptionTextView;
-    Button popUpButton;
-    ImageView closePopUpImageView;
+    private TextView popUpTitleTextView, popUpDescriptionTextView;
+    private Button popUpButton;
+    private ImageView closePopUpImageView;
 
     public InfoDialog(String title, String description) {
         this.title = title;
@@ -45,8 +48,6 @@ public class InfoDialog extends AppCompatDialogFragment {
         dialog.setCanceledOnTouchOutside(false);
         return dialog;
     }
-
-
 
     private void CreateViews(View view) {
         popUpTitleTextView = view.findViewById(R.id.popUpTitleTextView);

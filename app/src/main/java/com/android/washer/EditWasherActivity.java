@@ -1,20 +1,23 @@
 package com.android.washer;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,7 +31,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +40,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class EditWasherActivity extends AppCompatActivity {
+public class EditWasherActivity extends BaseActivity {
 
     private TextView headerTextView;
     private RecyclerView recyclerView;
     private LinearLayout emptyStateView;
+    private ImageView emptyStateImageView;
     private Button scanAgainButton;
     private List<WasherModel> washers;
     private EditWasherRecyclerAdapter adapter;
@@ -55,9 +58,10 @@ public class EditWasherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_washer_activity);
-        this.getSupportActionBar().setTitle("Τα πλυντήρια μου");
+        this.getSupportActionBar().setTitle(getResources().getString(R.string.my_washers_string));
         recyclerView = findViewById(R.id.editWashersRV);
         emptyStateView = findViewById(R.id.editWasherEmptyStateView);
+        emptyStateImageView = findViewById(R.id.editWasherEmtpyStateImageView);
         headerTextView = findViewById(R.id.editWasherTV);
         scanAgainButton = findViewById(R.id.editWasherScanAgainBtn);
         setupData();
@@ -65,6 +69,14 @@ public class EditWasherActivity extends AppCompatActivity {
     }
 
     private void setupData() {
+        if (!isNetworkConnected()) {
+            showEmptyState();
+            emptyStateImageView.setImageResource(R.drawable.no_network_connection);
+            return;
+        }
+        hideEmptyState();
+        resetEmptyState();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.CONFIG)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -99,6 +111,10 @@ public class EditWasherActivity extends AppCompatActivity {
         });
     }
 
+    private void resetEmptyState() {
+        emptyStateImageView.setImageResource(R.drawable.no_result_empty_state_icon);
+    }
+
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.editWashersRV);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -125,6 +141,20 @@ public class EditWasherActivity extends AppCompatActivity {
             headerTextView.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void showEmptyState() {
+        emptyStateView.setVisibility(View.VISIBLE);
+        scanAgainButton.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        handleScanAgain();
+    }
+
+    private void hideEmptyState() {
+        emptyStateView.setVisibility(View.INVISIBLE);
+        scanAgainButton.setVisibility(View.INVISIBLE);
+        headerTextView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
     private void handleAdapterListener() {
@@ -212,4 +242,10 @@ public class EditWasherActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onBackPressed();
+        return true;
+    }
 }
